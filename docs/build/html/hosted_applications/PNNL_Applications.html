@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>State Estimator Service &mdash; GridAPPS-D 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="GridAPPS-D 1.0 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GridAPPS-D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing_gridappsd/index.html">Installing GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gridappsd/index.html">Using GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_resources/index.html">GridAPPS-D Development Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model/index.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Integrated Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#state-estimator">State Estimator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#model-validator">Model Validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#distribution-optimal-power-flow-for-real-time-setpoint-dispatch">Distribution Optimal Power Flow for Real-Time Setpoint Dispatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_docs/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license/license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GridAPPS-D</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>State Estimator Service</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/hosted_applications/PNNL_Applications.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound" id="pnnl-apps-rc2">
+</div>
+<div class="section" id="state-estimator-service">
+<h1>State Estimator Service<a class="headerlink" href="#state-estimator-service" title="Permalink to this headline">¶</a></h1>
+<p>Given a perfect and complete set of voltage magnitude and angle
+measurements, along with a detailed and accurate power system model, one
+could calculate the real power, or any other electrical variable of
+interest, anywhere in the system. In practice, measurements have errors,
+time delays, and may even be missing. State estimation refers to the
+process of minimizing the errors and filling in gaps <a class="footnote-reference" href="#id8" id="id1">[1]</a>. One state
+estimation method is called “weighted least squares”, and it’s analogous
+to drawing the best-fit line through a set of scattered points. Other
+methods may perform better <a class="footnote-reference" href="#id9" id="id2">[2]</a>. Also, on distribution systems, it may be
+better to estimate branch currents instead of node voltages, but the
+principle is the same. In GridAPPS-D, the visualizations and
+applications ought to use the best available state estimator outputs,
+instead of raw SCADA values, for both accuracy and consistency.
+Therefore, the state estimator is not an application but a service in
+GridAPPS-D, sitting between emulated SCADA and the GOSS bus.</p>
+<p><img alt="image0" src="../_images/SE_Service.png" /></p>
+<p>Figure 1: The state estimator processes noisy and incomplete
+measurements, then posting estimated voltage (V), current (I), real
+power (P), reactive power (Q) and switch status (S) values onto the
+GridAPPS-D message / data bus.</p>
+<p>In Figure 1, the power system model (upper left) will include a limited
+number of sensors, corresponding to actual voltage and current
+transformers, line post sensors, wireless sensors, etc. In some
+scenarios, smart meters can also be sensors. Each such sensor will have
+different performance characteristics (e.g. precision, accuracy,
+sampling rate). Distribution systems typically do not have enough
+sensors to make the system observable, so there will be measurement gaps
+in the topology. The state estimator might fill these gaps with
+interpolation and graph-tracing methods on the power system model.</p>
+<p>The supervisory control and data acquisition (SCADA) system in Figure 1
+introduces more errors and failure points. Eventually, GridAPPS-D may
+simulate these impacts by federating ns-3 as a co-simulator. Until then,
+a placeholder module could be used to insert variable errors, time
+delays and dropouts in each measurement, whether due to sensor
+characteristics or the communication system. The output represents data
+as it would come into an operations center, and feeds the state
+estimator. Internally, the data flows between simulator, SCADA and state
+estimator might be implemented with FNCS, but this is an implementation
+detail. The state estimator will provide two outputs to the GOSS bus
+used by all GridAPPS-D applications:</p>
+<ol class="arabic simple">
+<li>At a time step configured by the platform, publish the best-estimate
+VIPQS values wherever sensors actually exist in the model, with
+quality attributes that still have to be established. Sensor
+locations delineate circuit segments, and note that all VIPQS values
+will be estimated at the boundaries, even if the sensor measures only
+V or I, for example.</li>
+<li>Upon request by another application or service, publish the estimated
+VIPQS values for all nodes and components in the model, even at
+locations where no sensors exist. A variant is to publish the
+estimates only for selected nodes and components.</li>
+</ol>
+<p>As indicated in Figure 1, other applications need to obtain estimated
+VIPQS values from the GOSS bus. Switch open/close states are a special
+case; they might be considered known values, but in practice the switch
+state is a measurement, which could lead to topology errors in the
+model. For GridAPPS-D, switch state estimates need to be a point of
+emphasis. Given that most distribution systems lack redundant
+measurements, It would be possible for an application to query these
+VIPQS values directly from the simulator or SCADA, bypassing the state
+estimator, but this is “cheating” in most situations. However, in the
+application development process, idealized VIPQS values could be
+obtained through a combination of two methods:</p>
+<ol class="arabic simple">
+<li>Add more sensors to the power system model</li>
+<li>Set the sensor and channel errors to zero</li>
+</ol>
+<p>Because the sensor outputs in GridAPPS-D come from a power flow solution
+that enforces Kirchhoff’s Laws, the state estimator will produce ideally
+accurate values whenever the sensor and channel errors have been
+specified to be zero. The state estimator may still exhibit
+interpolation errors between sensor locations, but that is readily
+mitigated for testing purposes by adding more sensors.</p>
+<p>With reference to RC1, the visualization and VVO applications should now
+subscribe to VIPQS values from the state estimator, not from the
+distribution simulator. They may also use or display quality metrics on
+the estimated values.</p>
+</div>
+<div class="section" id="model-validation-application">
+<h1>Model Validation Application<a class="headerlink" href="#model-validation-application" title="Permalink to this headline">¶</a></h1>
+<p>The state estimator basically attempts to fit measured data to a power
+flow model, usually assuming that the model is correct. However, a model
+attribute (e.g. line impedance) could also be estimated by minimizing
+its error residual in the state estimator’s power flow solution. This
+process works best when applied to just one or a few suspect attributes,
+and/or when an archive is available to provide enough redundant
+measurements. The Model Validation Application will use these state
+estimator features off-line to help identify and correct the following
+types of model errors:</p>
+<ol class="arabic simple">
+<li>Unknown or incorrect service transformer sizes</li>
+<li>Unknown or incorrect secondary circuit lengths</li>
+<li>Incorrect phase identification of single-phase components</li>
+<li>Phase wiring errors in line segments and switches</li>
+<li>Transformer connection errors, especially reversed primary and
+secondary</li>
+<li>Primary conductor sizes that don’t decrease monotonically with
+distance from the source</li>
+<li>Missing regulator and capacitor control settings (i.e. supply
+defaults from heuristic rules)</li>
+<li>More than one of these on the same pole: recloser, line regulator,
+capacitor</li>
+<li>Substation transformer impedance and turns ratio</li>
+</ol>
+<p>These types of errors often appear upon the initial model import from a
+geographic information system (GIS), or in periodic model updates from
+GIS. Other error types may be added later. Many utilities do not have
+their secondary circuits modeled at all, but this has an important
+impact on AMI data. The service transformers and secondary circuits
+insert significant impedance between AMI meters and the primary circuit,
+where most of the other sensors are installed. Therefore, the first two
+items will require AMI data, and also enable its more effective use.</p>
+<p>As shown in Figure 2, the Model Validator integrates with GridAPPS-D as
+a hosted application on the GOSS bus. Internally, it will use some of
+the same algorithms as the State Estimator and may share some code or
+binary files, but this is an implementation detail. It will need to
+access an archive of state-estimated VIPQS data, which may include AMI
+data. It will also use or incorporate an off-line power flow model, not
+the same one running in the GridAPPS-D distribution simulator. This may
+be EPRI’s OpenDSS simulator <a class="footnote-reference" href="#id10" id="id3">[3]</a>; compared to GridLAB-D, it’s more
+tolerant of model errors and provides more diagnostic information about
+model errors.</p>
+<p><img alt="image1" src="../_images/MV_App.png" /></p>
+<p>Figure 2: The Model Validator works with an archive from the state
+estimator, and an off-line power flow model.</p>
+</div>
+<div class="section" id="transactive-systems-application">
+<h1>Transactive Systems Application<a class="headerlink" href="#transactive-systems-application" title="Permalink to this headline">¶</a></h1>
+<p>Transactive energy is a method of controlling loads and resources on the
+distribution system, combining both market and electrical principles
+<a class="footnote-reference" href="#id11" id="id4">[4]</a>. One reason for including this application in DOE-funded GridAPPS-D
+is that PNNL has made several technical contributions and led several
+demonstration projects in transactive systems, also funded by DOE <a class="footnote-reference" href="#id12" id="id5">[5]</a>.</p>
+<p><strong>Application structure</strong></p>
+<p>This transactive systems application is to be implemented as a
+modularized 2-layer 3-level structure, as seen from Figure 3. The layer
+decomposition helps the control of various groups, with limited
+information flow between different layers. With the predefined functions
+in each agent type (Agent A, B, and C) in each level, the existing
+transactive system related work can be conveniently integrated into the
+application, and the new control features can be added into specific
+control function in each type of the agent easily.</p>
+<p><img alt="TransactiveSystemAppStructure" src="../_images/TransactiveSystemAppStructure.png" /></p>
+<p>Figure 3: The structure of the modularized 2-layer 3-level transactive
+system application</p>
+<p>The modularized agents opens the door for integrating different control
+mechanisms into the application. Users need to consider which level
+their control algorithm fits into, and fill in the control function of
+the Agent class in that level, without worrying about communications
+between the agents. In each level, the same type of the agent may have
+various control functions, which help combining benefits of different
+control schemes together.</p>
+<p>Agent A, B and C will be implemented as VOLTTRON applications. VOLTTRON
+is an application platform for distributed sensing and control
+applications <a class="footnote-reference" href="#id13" id="id6">[6]</a>. With the capability of hardware-in-the-loop (HIL)
+testing through VOLTTRON, the transactive systems application will be
+tested using the actual devices. A GOSS-VOLTTRON Bridge is to be
+implemented, for the communication between GridAPPS-D and the VOLTTRON
+agents in the transactive systems application.</p>
+<p><strong>Application test cases</strong></p>
+<p>The hierarchical control framework introduced in <a class="footnote-reference" href="#id14" id="id7">[7]</a> for integrated
+coordination between distributed energy resources and demand response
+will be implemented into the application. In addition, [7] has not
+considered the power losses or power constrains, which will be taken
+into consideration in this test case. The two-layer control mechanism,
+including the coordination layer and device layer, fits the proposed
+structure of the application well. The control in each level will be
+implemented into corresponding function in each type of the agent. The
+IEEE 123-node test feeder built in GridLAB-D will be used for testing
+the application.</p>
+<p><strong>CIM extension for the Application</strong></p>
+<p>The latest versions of GridAPPS-D has used a reduced-order CIM to
+support feeder modeling. With transactive system application included
+into GridAPPS-D platform, more objects, such as house air conditioner
+and water heater, need to be defined in CIM. Before the definition in
+CIM, a simplified version of the house object and water heater object
+are to be implemented in GridLAB-D.</p>
+</div>
+<div class="section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><ol class="first last upperalpha simple" start="20">
+<li><ol class="first upperalpha" start="5">
+<li>McDermott, “Grid Monitoring and State Estimation,” in <em>Smart Grid Handbook</em>, ed: John Wiley &amp; Sons, Ltd, 2016.</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><ol class="first last upperalpha simple">
+<li>Abur and A. Gómez Expósito, <em>Power system state estimation : theory and implementation</em>. New York, NY: Marcel Dekker, 2004.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><ol class="first last upperalpha simple" start="18">
+<li><ol class="first upperalpha" start="3">
+<li>Dugan and T. E. McDermott, “An open source platform for collaborating on smart grid research,” in <em>Power and Energy Society General Meeting, 2011 IEEE</em>, 2011, pp. 1-7.</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Gridwise Architecture Council. (2017). <em>Transactive Energy</em>. Available: <a class="reference external" href="http://www.gridwiseac.org/about/transactive_energy.aspx">http://www.gridwiseac.org/about/transactive_energy.aspx</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>Pacific Northwest National Laboratory. (2017). <em>Transactive Energy Simulation Platform (TESP)</em>. Available: <a class="reference external" href="http://tesp.readthedocs.io/en/latest/">http://tesp.readthedocs.io/en/latest/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td><ol class="first last upperalpha simple" start="19">
+<li>Katipamula, J. Haack, G. Hernandez, B. Akyol, and J. Hagerman, “VOLTTRON: An Open-Source Software Platform of the Future,” <em>IEEE Electrification Magazine,</em> vol. 4, pp. 15-22, 2016.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>Di Wu, Jianming Lian, Yannan Sun, Tao Yang, Jacob Hansen, “Hierarchical control framework for integrated coordination between distributed energy resources and demand response,” Electric Power Systems Research, pp. 45-54, May 2017.</td></tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Battelle Memorial Institute All rights reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

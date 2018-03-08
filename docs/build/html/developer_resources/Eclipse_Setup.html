@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; GridAPPS-D 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="GridAPPS-D 1.0 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GridAPPS-D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing_gridappsd/index.html">Installing GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gridappsd/index.html">Using GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">GridAPPS-D Development Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model/index.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html">Integrated Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#state-estimator">State Estimator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#model-validator">Model Validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#distribution-optimal-power-flow-for-real-time-setpoint-dispatch">Distribution Optimal Power Flow for Real-Time Setpoint Dispatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_docs/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license/license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GridAPPS-D</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer_resources/Eclipse_Setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Download or clone the repository from github</dt>
+<dd><ol class="first last loweralpha">
+<li>Install github desktop <a class="reference external" href="https://desktop.github.com/">https://desktop.github.com/</a> or sourcetree <a class="reference external" href="https://www.atlassian.com/software/sourcetree/overview">https://www.atlassian.com/software/sourcetree/overview</a> and Clone the GOSS-GridAPPS-D repository (<a class="reference external" href="https://github.com/GRIDAPPSD/GOSS-GridAPPS-D">https://github.com/GRIDAPPSD/GOSS-GridAPPS-D</a>)</li>
+<li>Or download the source (<a class="reference external" href="https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/archive/master.zip">https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/archive/master.zip</a>)</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li>Install java 1.8 SDK and set JAVA_HOME variable</li>
+<li>Install Eclipse <a class="reference external" href="http://www.eclipse.org/downloads/packages/release/Mars/1">http://www.eclipse.org/downloads/packages/release/Mars/1</a> (Mars 4.5.1 or earlier, 4.5.2 appears to have bugs related to bundle processing) TODO what about neon?</li>
+<li>Open eclipse with workspace set to GOSS-GridAPPS-D download location, eg. C:UsersusernameDocumentsGOSS-GridAPPS-D</li>
+<li>Install BNDTools plugin: Help-&gt;Install New Software-&gt;Work with: <a class="reference external" href="http://dl.bintray.com/bndtools/bndtools/3.0.0">http://dl.bintray.com/bndtools/bndtools/3.0.0</a> and Install Bndtools 3.0.0 or earlier</li>
+<li><dl class="first docutils">
+<dt>Import projects into workspace</dt>
+<dd><ol class="first last loweralpha">
+<li>File-&gt;Import General-&gt;Existing Projects into workspace</li>
+<li>Select root directory, GOSS-GridAPPS-D download location</li>
+<li>Select cnf, pnnl.goss.gridappsd</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li>If errors are detected, Right click on the pnnl.goss.gridappsd project and select release, then release all bundles</li>
+<li><dl class="first docutils">
+<dt>If you would like to you a local version of GOSS-Core (Optional)</dt>
+<dd><ol class="first last loweralpha">
+<li>Update cnf/ext/repositories.bnd</li>
+<li>Select source view and add the following as the first line</li>
+<li>aQute.bnd.deployer.repository.LocalIndexedRepo;name=GOSS Local Release;local=/GOSS-Core2/cnf/releaserepo;pretty=true,</li>
+<li>verify by switching to bndtools and verify that there are packages under GOSS Local Relase</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li>Open pnnl.goss.gridappsd/bnd.bnd, Rebuild project, you should not have errors</li>
+<li>Open pnnl.goss.gridappsd/run.bnd.bndrun and click Run OSGI</li>
+</ol>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Battelle Memorial Institute All rights reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

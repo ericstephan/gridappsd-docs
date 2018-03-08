@@ -1,0 +1,598 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CDPSM_to_GLM.GldNode &mdash; GridAPPS-D 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="GridAPPS-D 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="API Documentation" href="../../../../index.html"/>
+        <link rel="next" title="CDPSM_to_GLM.SpacingCount" href="CDPSM_to_GLM-SpacingCount.html"/>
+        <link rel="prev" title="CDPSM_to_GLM" href="CDPSM_to_GLM.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> GridAPPS-D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installing_gridappsd/index.html">Installing GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../using_gridappsd/index.html">Using GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_resources/index.html">GridAPPS-D Development Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_model/index.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../hosted_applications/index.html">Integrated Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../hosted_applications/index.html#state-estimator">State Estimator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../hosted_applications/index.html#model-validator">Model Validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../hosted_applications/index.html#distribution-optimal-power-flow-for-real-time-setpoint-dispatch">Distribution Optimal Power Flow for Real-Time Setpoint Dispatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../license/license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">GridAPPS-D</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">API Documentation</a> &raquo;</li>
+        
+      <li>CDPSM_to_GLM.GldNode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/api_docs/gov/pnnl/gridlabd/cim/CDPSM_to_GLM-GldNode.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cdpsm-to-glm-gldnode">
+<h1>CDPSM_to_GLM.GldNode<a class="headerlink" href="#cdpsm-to-glm-gldnode" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode">
+static class <code class="descname">GldNode</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class to accumulate nodes and loads.</p>
+<p>All EnergyConsumer data will be attached to node objects, then written as load objects. This preserves the input ConnectivityNode names</p>
+<p>TODO - another option is to leave all nodes un-loaded, and attach all loads to parent nodes, closer to what OpenDSS does</p>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bdelta">
+<h3>bDelta<a class="headerlink" href="#bdelta" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.bDelta">
+public boolean <code class="descname">bDelta</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.bDelta" title="Permalink to this definition">¶</a></dt>
+<dd><p>will add N or D phasing, if not S</p>
+</dd></dl>
+
+</div>
+<div class="section" id="bsecondary">
+<h3>bSecondary<a class="headerlink" href="#bsecondary" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.bSecondary">
+public boolean <code class="descname">bSecondary</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.bSecondary" title="Permalink to this definition">¶</a></dt>
+<dd><p>if bSecondary true, the member variables for phase A and B loads actually correspond to secondary phases 1 and 2. For GridLAB-D, these are written to phase AS, BS or CS, depending on the primary phase, which we find from the service transformer or triplex.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="bswing">
+<h3>bSwing<a class="headerlink" href="#bswing" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.bSwing">
+public boolean <code class="descname">bSwing</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.bSwing" title="Permalink to this definition">¶</a></dt>
+<dd><p>denotes the SWING bus, aka substation source bus</p>
+</dd></dl>
+
+</div>
+<div class="section" id="name">
+<h3>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.name">
+public final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">name</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>root name of the node (or load), will have <cite>nd_</cite> prepended</p>
+</dd></dl>
+
+</div>
+<div class="section" id="nomvln">
+<h3>nomvln<a class="headerlink" href="#nomvln" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.nomvln">
+public double <code class="descname">nomvln</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.nomvln" title="Permalink to this definition">¶</a></dt>
+<dd><p>this nominal voltage is always line-to-neutral</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pa-i">
+<h3>pa_i<a class="headerlink" href="#pa-i" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pa_i">
+public double <code class="descname">pa_i</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pa_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>real power on phase A or s1, constant current portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pa-p">
+<h3>pa_p<a class="headerlink" href="#pa-p" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pa_p">
+public double <code class="descname">pa_p</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pa_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>real power on phase A or s1, constant power portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pa-z">
+<h3>pa_z<a class="headerlink" href="#pa-z" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pa_z">
+public double <code class="descname">pa_z</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pa_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>real power on phase A or s1, constant impedance portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pb-i">
+<h3>pb_i<a class="headerlink" href="#pb-i" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pb_i">
+public double <code class="descname">pb_i</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pb_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>real power on phase B or s2, constant current portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pb-p">
+<h3>pb_p<a class="headerlink" href="#pb-p" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pb_p">
+public double <code class="descname">pb_p</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pb_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>real power on phase B or s2, constant power portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pb-z">
+<h3>pb_z<a class="headerlink" href="#pb-z" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pb_z">
+public double <code class="descname">pb_z</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pb_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>real power on phase B or s2, constant impedance portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pc-i">
+<h3>pc_i<a class="headerlink" href="#pc-i" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pc_i">
+public double <code class="descname">pc_i</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pc_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>real power on phase C, constant current portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pc-p">
+<h3>pc_p<a class="headerlink" href="#pc-p" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pc_p">
+public double <code class="descname">pc_p</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pc_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>real power on phase C, constant power portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pc-z">
+<h3>pc_z<a class="headerlink" href="#pc-z" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pc_z">
+public double <code class="descname">pc_z</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.pc_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>real power on phase C, constant impedance portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="phases">
+<h3>phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.phases">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">phases</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.phases" title="Permalink to this definition">¶</a></dt>
+<dd><p>ABC allowed</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qa-i">
+<h3>qa_i<a class="headerlink" href="#qa-i" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qa_i">
+public double <code class="descname">qa_i</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qa_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>reactive power on phase A or s1, constant current portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qa-p">
+<h3>qa_p<a class="headerlink" href="#qa-p" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qa_p">
+public double <code class="descname">qa_p</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qa_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>reactive power on phase A or s1, constant power portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qa-z">
+<h3>qa_z<a class="headerlink" href="#qa-z" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qa_z">
+public double <code class="descname">qa_z</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qa_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>reactive power on phase A or s1, constant impedance portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qb-i">
+<h3>qb_i<a class="headerlink" href="#qb-i" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qb_i">
+public double <code class="descname">qb_i</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qb_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>reactive power on phase B or s2, constant current portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qb-p">
+<h3>qb_p<a class="headerlink" href="#qb-p" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qb_p">
+public double <code class="descname">qb_p</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qb_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>reactive power on phase B or s2, constant power portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qb-z">
+<h3>qb_z<a class="headerlink" href="#qb-z" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qb_z">
+public double <code class="descname">qb_z</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qb_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>reactive power on phase B or s2, constant impedance portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qc-i">
+<h3>qc_i<a class="headerlink" href="#qc-i" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qc_i">
+public double <code class="descname">qc_i</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qc_i" title="Permalink to this definition">¶</a></dt>
+<dd><p>reactive power on phase C, constant current portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qc-p">
+<h3>qc_p<a class="headerlink" href="#qc-p" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qc_p">
+public double <code class="descname">qc_p</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qc_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>reactive power on phase C, constant power portion</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qc-z">
+<h3>qc_z<a class="headerlink" href="#qc-z" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qc_z">
+public double <code class="descname">qc_z</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.qc_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>reactive power on phase C, constant impedance portion</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gldnode">
+<h3>GldNode<a class="headerlink" href="#gldnode" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.GldNode(String)">
+public <code class="descname">GldNode</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.GldNode(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>constructor defaults to zero load and zero phases present</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> – CIM name of the bus</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addphases">
+<h3>AddPhases<a class="headerlink" href="#addphases" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.AddPhases(String)">
+public boolean <code class="descname">AddPhases</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phs</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.AddPhases(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>accumulates phases present</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>phs</strong> – phases to add, may contain ABCDSs</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">always true</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="applyzip">
+<h3>ApplyZIP<a class="headerlink" href="#applyzip" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.ApplyZIP(double, double, double)">
+public void <code class="descname">ApplyZIP</code><span class="sig-paren">(</span>double<em> Z</em>, double<em> I</em>, double<em> P</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.ApplyZIP(double, double, double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>reapportion loads according to constant power (Z/sum), constant current (I/sum) and constant power (P/sum)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Z</strong> – portion of constant-impedance load</li>
+<li><strong>I</strong> – portion of constant-current load</li>
+<li><strong>P</strong> – portion of constant-power load</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getphases">
+<h3>GetPhases<a class="headerlink" href="#getphases" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.GetPhases()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetPhases</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.GetPhases()" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">phasing string for GridLAB-D with appropriate D, S or N suffix</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="hasload">
+<h3>HasLoad<a class="headerlink" href="#hasload" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.HasLoad()">
+public boolean <code class="descname">HasLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.HasLoad()" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">true if a non-zero real or reactive load on any phase</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="rescaleload">
+<h3>RescaleLoad<a class="headerlink" href="#rescaleload" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.RescaleLoad(double)">
+public void <code class="descname">RescaleLoad</code><span class="sig-paren">(</span>double<em> scale</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode.RescaleLoad(double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>scales the load by a factor that probably came from the command line’s -l option</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scale</strong> – multiplying factor on all of the load components</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CDPSM_to_GLM-SpacingCount.html" class="btn btn-neutral float-right" title="CDPSM_to_GLM.SpacingCount" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="CDPSM_to_GLM.html" class="btn btn-neutral" title="CDPSM_to_GLM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Battelle Memorial Institute All rights reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,1498 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CDPSM_to_GLM &mdash; GridAPPS-D 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="GridAPPS-D 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="API Documentation" href="../../../../index.html"/>
+        <link rel="next" title="CDPSM_to_GLM.GldNode" href="CDPSM_to_GLM-GldNode.html"/>
+        <link rel="prev" title="API Documentation" href="../../../../index.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> GridAPPS-D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installing_gridappsd/index.html">Installing GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../using_gridappsd/index.html">Using GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_resources/index.html">GridAPPS-D Development Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_model/index.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../hosted_applications/index.html">Integrated Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../hosted_applications/index.html#state-estimator">State Estimator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../hosted_applications/index.html#model-validator">Model Validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../hosted_applications/index.html#distribution-optimal-power-flow-for-real-time-setpoint-dispatch">Distribution Optimal Power Flow for Real-Time Setpoint Dispatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../license/license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">GridAPPS-D</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">API Documentation</a> &raquo;</li>
+        
+      <li>CDPSM_to_GLM</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/api_docs/gov/pnnl/gridlabd/cim/CDPSM_to_GLM.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cdpsm-to-glm">
+<h1>CDPSM_to_GLM<a class="headerlink" href="#cdpsm-to-glm" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM">
+public class <code class="descname">CDPSM_to_GLM</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class converts CIM (IEC 61968) RDF to GridLAB-D format</p>
+<p>The general pattern is to retrieve iterators on the different types of objects (e.g. ACLineSegment) through simple SPARQL queries. Usually these iterators include just the mrID, or the mrID and name. Then Jena RDF model and resource functions are used to pull other properties from iterated objects, writing GridLAB-D input along the way. A future version will rely more heavily on SPARQL queries to do the selection and filtering, as the preferred pattern for developers working with CIM. In existing code, the EnergySource most closely follows this new preferred pattern.</p>
+<p>Invoke as a console-mode program</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Tom McDermott</td>
+</tr>
+</tbody>
+</table>
+<p><strong>See also:</strong> <a class="reference internal" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.main(String[])" title="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.main(String[])"><code class="xref java java-ref docutils literal notranslate"><span class="pre">CDPSM_to_GLM.main</span></code></a>, <a class="reference external" href="http://www.ucaiug.org/default.aspx">CIM User Group</a>, <a class="reference external" href="https://github.com/GRIDAPPSD/Powergrid-Models/blob/temcdrm/CIM/CDPSM_RC1.docx">CIM Profile and Queries for Feeder Modeling in GridLAB-D</a>, <a class="reference external" href="http://www.gridlabd.org">GridLAB-D</a></p>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="baseuri">
+<h3>baseURI<a class="headerlink" href="#baseuri" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.baseURI">
+static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">baseURI</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.baseURI" title="Permalink to this definition">¶</a></dt>
+<dd><p>identifies gridlabd</p>
+</dd></dl>
+
+</div>
+<div class="section" id="mapnodes">
+<h3>mapNodes<a class="headerlink" href="#mapnodes" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.mapNodes">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html" title="java.util.HashMap">HashMap</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>, <a class="reference internal" href="CDPSM_to_GLM-GldNode.html#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode" title="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode">GldNode</a>&gt; <code class="descname">mapNodes</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.mapNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>to look up nodes by name</p>
+</dd></dl>
+
+</div>
+<div class="section" id="mapspacings">
+<h3>mapSpacings<a class="headerlink" href="#mapspacings" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.mapSpacings">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html" title="java.util.HashMap">HashMap</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>, <a class="reference internal" href="CDPSM_to_GLM-SpacingCount.html#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SpacingCount" title="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SpacingCount">SpacingCount</a>&gt; <code class="descname">mapSpacings</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.mapSpacings" title="Permalink to this definition">¶</a></dt>
+<dd><p>to look up line spacings by name</p>
+</dd></dl>
+
+</div>
+<div class="section" id="neg120">
+<h3>neg120<a class="headerlink" href="#neg120" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.neg120">
+static final Complex <code class="descname">neg120</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.neg120" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotates a phasor -120 degrees by multiplication</p>
+</dd></dl>
+
+</div>
+<div class="section" id="nscim">
+<h3>nsCIM<a class="headerlink" href="#nscim" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.nsCIM">
+static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">nsCIM</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.nsCIM" title="Permalink to this definition">¶</a></dt>
+<dd><p>namespace for CIM; should match the CIM version used to generate the RDF</p>
+</dd></dl>
+
+</div>
+<div class="section" id="nsrdf">
+<h3>nsRDF<a class="headerlink" href="#nsrdf" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.nsRDF">
+static final <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">nsRDF</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.nsRDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>namespace for RDF</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pos120">
+<h3>pos120<a class="headerlink" href="#pos120" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.pos120">
+static final Complex <code class="descname">pos120</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.pos120" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotates a phasor +120 degrees by multiplication</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ptbasenomv">
+<h3>ptBaseNomV<a class="headerlink" href="#ptbasenomv" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.ptBaseNomV">
+ Property <code class="descname">ptBaseNomV</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.ptBaseNomV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="pteqbasev">
+<h3>ptEqBaseV<a class="headerlink" href="#pteqbasev" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.ptEqBaseV">
+ Property <code class="descname">ptEqBaseV</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.ptEqBaseV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="ptequip">
+<h3>ptEquip<a class="headerlink" href="#ptequip" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.ptEquip">
+ Property <code class="descname">ptEquip</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.ptEquip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="ptlevbasev">
+<h3>ptLevBaseV<a class="headerlink" href="#ptlevbasev" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.ptLevBaseV">
+ Property <code class="descname">ptLevBaseV</code><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.ptLevBaseV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="accumulateloads">
+<h3>AccumulateLoads<a class="headerlink" href="#accumulateloads" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.AccumulateLoads(GldNode, String, double, double, double, double, double, double, double, double, double, double)">
+static boolean <code class="descname">AccumulateLoads</code><span class="sig-paren">(</span><a class="reference internal" href="CDPSM_to_GLM-GldNode.html#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode" title="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldNode">GldNode</a><em> nd</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phs</em>, double<em> pL</em>, double<em> qL</em>, double<em> Pv</em>, double<em> Qv</em>, double<em> Pz</em>, double<em> Pi</em>, double<em> Pp</em>, double<em> Qz</em>, double<em> Qi</em>, double<em> Qp</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.AccumulateLoads(GldNode, String, double, double, double, double, double, double, double, double, double, double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distributes a total load (pL+jqL) among the phases (phs) present on GridLAB-D node (nd)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nd</strong> – GridLAB-D node to receive the total load</li>
+<li><strong>phs</strong> – phases actually present at the node</li>
+<li><strong>pL</strong> – total real power</li>
+<li><strong>qL</strong> – total reactive power</li>
+<li><strong>Pv</strong> – real power voltage exponent from a CIM LoadResponseCharacteristic</li>
+<li><strong>Qv</strong> – reactive power voltage exponent from a CIM LoadResponseCharacteristic</li>
+<li><strong>Pz</strong> – real power constant-impedance percentage from a CIM LoadResponseCharacteristic</li>
+<li><strong>Qz</strong> – reactive power constant-impedance percentage from a CIM LoadResponseCharacteristic</li>
+<li><strong>Pi</strong> – real power constant-current percentage from a CIM LoadResponseCharacteristic</li>
+<li><strong>Qi</strong> – reactive power constant-current percentage from a CIM LoadResponseCharacteristic</li>
+<li><strong>Pp</strong> – real power constant-power percentage from a CIM LoadResponseCharacteristic</li>
+<li><strong>Qp</strong> – reactive power constant-power percentage from a CIM LoadResponseCharacteristic</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">always true</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="bus-shuntphases">
+<h3>Bus_ShuntPhases<a class="headerlink" href="#bus-shuntphases" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Bus_ShuntPhases(String, String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">Bus_ShuntPhases</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phs</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> conn</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Bus_ShuntPhases(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>appends N or D for GridLAB-D loads and capacitors, based on wye or delta connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>phs</strong> – from CIM PhaseCode</li>
+<li><strong>conn</strong> – contains <cite>w</cite> for wye connection and <cite>d</cite> for delta connection</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">phs with N or D possibly appended</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="cformat">
+<h3>CFormat<a class="headerlink" href="#cformat" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.CFormat(Complex)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">CFormat</code><span class="sig-paren">(</span>Complex<em> c</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.CFormat(Complex)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>c</strong> – complex number</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">formatted string for GridLAB-D input files with ‘j’ at the end</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="count-phases">
+<h3>Count_Phases<a class="headerlink" href="#count-phases" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Count_Phases(String)">
+static int <code class="descname">Count_Phases</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phs</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Count_Phases(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>from the phase string, determine how many are present, but ignore D, N and S</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>phs</strong> – the parsed CIM PhaseCode</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(1..3)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="findbasevoltage">
+<h3>FindBaseVoltage<a class="headerlink" href="#findbasevoltage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.FindBaseVoltage(Resource, Property, Property, Property, Property)">
+static double <code class="descname">FindBaseVoltage</code><span class="sig-paren">(</span>Resource<em> res</em>, Property<em> ptEquip</em>, Property<em> ptEqBaseV</em>, Property<em> ptLevBaseV</em>, Property<em> ptBaseNomV</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.FindBaseVoltage(Resource, Property, Property, Property, Property)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the nominal voltage for conduction equipment, from either its own or container’s base voltage. For example, capacitors and transformer ends have their own base voltage, but line segments don’t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>res</strong> – an RDF resource corresponding to a ConductingEquipment instance; we need to find its base voltage</li>
+<li><strong>ptEquip</strong> – an RDF property corresponding to the EquipmentContainer association</li>
+<li><strong>ptEqBaseV</strong> – an RDF property corresponding to a possible BaseVoltage association on the equipment itself</li>
+<li><strong>ptLevBaseV</strong> – an RDF property corresponding to the EquipmentContainer’s BaseVoltage association</li>
+<li><strong>ptBaseNomV</strong> – an RDF property corresponding to the nominalVoltage attribute of a CIM BaseVoltage</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the nominal voltage as found from the equipment or its container, or 1.0 if not found</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="findconductoramps">
+<h3>FindConductorAmps<a class="headerlink" href="#findconductoramps" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.FindConductorAmps(Model, Resource, Property, Property)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">FindConductorAmps</code><span class="sig-paren">(</span>Model<em> mdl</em>, Resource<em> res</em>, Property<em> ptDataSheet</em>, Property<em> ptAmps</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.FindConductorAmps(Model, Resource, Property, Property)" title="Permalink to this definition">¶</a></dt>
+<dd><p>needs to return the current rating for a line segment ‘res’ that has associated WireInfo at ‘ptDataSheet’, which in turn has the current rating at ptAmps</p>
+<p>TODO - this is not implemented; emitted syntax is for OpenDSS and the function call (below, in main) needs review</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>res</strong> – an RDF resource corresponding to a CIM ACLineSegment</li>
+<li><strong>ptDataSheet</strong> – an RDF property corresponding to CIM AssetDatasheet attribute</li>
+<li><strong>ptAmps</strong> – an RDF property corresponding to CIM ratedCurrent attribute</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">unusable OpenDSS input</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="firstphase">
+<h3>FirstPhase<a class="headerlink" href="#firstphase" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.FirstPhase(String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">FirstPhase</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phs</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.FirstPhase(String)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>phs</strong> – a parsed CIM PhaseCode</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the first phase found as A, B, or C</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="gldcapmode">
+<h3>GLDCapMode<a class="headerlink" href="#gldcapmode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GLDCapMode(String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GLDCapMode</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> s</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GLDCapMode(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>translate the capacitor control mode from CIM to GridLAB-D</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>s</strong> – CIM regulating control mode enum</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">MANUAL, CURRENT, VOLT, VAR</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="gld-id">
+<h3>GLD_ID<a class="headerlink" href="#gld-id" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GLD_ID(String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GLD_ID</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> arg</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GLD_ID(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>parse the GridLAB-D name from a CIM name, based on # position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg</strong> – the CIM IdentifiedObject.name attribute, not the mrID</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the compatible name for GridLAB-D</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="gld-name">
+<h3>GLD_Name<a class="headerlink" href="#gld-name" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GLD_Name(String, boolean)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GLD_Name</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> arg</em>, boolean<em> bus</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GLD_Name(String, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert a CIM name to GridLAB-D name, replacing unallowed characters and prefixing for a bus/node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg</strong> – the root bus or component name, aka CIM name</li>
+<li><strong>bus</strong> – to flag whether <cite>nd_</cite> should be prepended</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the compatible name for GridLAB-D</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getaclineparameters">
+<h3>GetACLineParameters<a class="headerlink" href="#getaclineparameters" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetACLineParameters(Model, String, Resource, double, double, String, PrintWriter)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetACLineParameters</code><span class="sig-paren">(</span>Model<em> mdl</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, Resource<em> r</em>, double<em> len</em>, double<em> freq</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phs</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintWriter.html" title="java.io.PrintWriter">PrintWriter</a><em> out</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetACLineParameters(Model, String, Resource, double, double, String, PrintWriter)" title="Permalink to this definition">¶</a></dt>
+<dd><p>for a standalone ACLineSegment with sequence parameters, find GridLAB-D formatted and normalized phase impedance matrix</p>
+<p>TODO - this is always three-phase, so we don’t need all 7 variations from GetSequenceLineConfigurations</p>
+<ul class="simple">
+<li></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>name</strong> – the root name of the line segment and its line_configuration</li>
+<li><strong>r</strong> – an RDF resource corresponding to a CIM ACLineSegment</li>
+<li><strong>len</strong> – the length of the ACLineSegment in feet</li>
+<li><strong>freq</strong> – frequency in Hz for converting susceptance to capacitance</li>
+<li><strong>phs</strong> – phasing for the written line_configuration (one of 7 variations) that needs to be referenced</li>
+<li><strong>out</strong> – the PrintWriter instance opened from the main program, passed here so that we can share code in GetSequenceLineConfigurations</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the name of the written line_configuration</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getbusname">
+<h3>GetBusName<a class="headerlink" href="#getbusname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetBusName(Model, String, int)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetBusName</code><span class="sig-paren">(</span>Model<em> mdl</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> eq_id</em>, int<em> seq</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetBusName(Model, String, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>finds the bus (ConnectivityNode) name for conducting equipment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file*</li>
+<li><strong>eq_id</strong> – the CIM mrID of the conducting equipment</li>
+<li><strong>seq</strong> – equals 1 to use the first terminal found, or 2 to use the second terminal found</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the GridLAB-D compatible bus name, or <cite>x</cite> if not found. As Terminals no longer have sequence numbers, the ordering of seq is unpredictable, so if there are two we can get bus 1 - bus 2 or bus 2 - bus 1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getbuspositionstring">
+<h3>GetBusPositionString<a class="headerlink" href="#getbuspositionstring" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetBusPositionString(Model, String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetBusPositionString</code><span class="sig-paren">(</span>Model<em> mdl</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> id</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetBusPositionString(Model, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>for a bus (ConnectivityNode), search for X,Y geo coordinates based on connected Terminals and equipment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>id</strong> – name of the bus to search from</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">X,Y coordinates in comma-separated value (CSV) format</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcabledata">
+<h3>GetCableData<a class="headerlink" href="#getcabledata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetCableData(Model, Resource)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetCableData</code><span class="sig-paren">(</span>Model<em> mdl</em>, Resource<em> res</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetCableData(Model, Resource)" title="Permalink to this definition">¶</a></dt>
+<dd><p>needs to return underground_line_conductor data in GridLAB-D format</p>
+<p>TODO - this is not implemented; the emitted syntax is actually for OpenDSS</p>
+<ul class="simple">
+<li></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>res</strong> – an RDF resource corresponding to a CIM CableInfo (not a leaf/concrete class)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">unusable OpenDSS input</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcapcontroldata">
+<h3>GetCapControlData<a class="headerlink" href="#getcapcontroldata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetCapControlData(Model, Resource, Resource)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetCapControlData</code><span class="sig-paren">(</span>Model<em> mdl</em>, Resource<em> rCap</em>, Resource<em> ctl</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetCapControlData(Model, Resource, Resource)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>rCap</strong> – an RDF resource corresponding to a CIM LinearShuntCompensator (aka capacitor)</li>
+<li><strong>ctl</strong> – an RDF resource corresponding to the CIM RegulatingControl that was found attached to the LinearShuntCompensator</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the embedded capacitor control data for a GridLAB-D capacitor object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getequipmenttype">
+<h3>GetEquipmentType<a class="headerlink" href="#getequipmenttype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetEquipmentType(Resource)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetEquipmentType</code><span class="sig-paren">(</span>Resource<em> r</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetEquipmentType(Resource)" title="Permalink to this definition">¶</a></dt>
+<dd><p>find the type of monitored equipment for controlled capacitors, usually a line or the capacitor itself</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID, should be a LinearShuntCompensator, ACLineSegment, EnergyConsumer or PowerTransformer</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">cap, line, xf if supported in GridLAB-D; NULL or ##UNKNOWN## if unsupported</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getgldtransformerconnection">
+<h3>GetGldTransformerConnection<a class="headerlink" href="#getgldtransformerconnection" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetGldTransformerConnection(String[], int)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetGldTransformerConnection</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>[]<em> wye</em>, int<em> nwdg</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetGldTransformerConnection(String[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map CIM connectionKind to GridLAB-D winding connections. TODO: some of the returnable types aren’t actually supported in GridLAB-D</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>wye</strong> – array of CIM connectionKind attributes per winding</li>
+<li><strong>nwdg</strong> – number of transformer windings, also the size of wye</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the GridLAB-D winding connection. This may be something not supported in GridLAB-D, which should be treated as a feature request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getimpedancematrix">
+<h3>GetImpedanceMatrix<a class="headerlink" href="#getimpedancematrix" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetImpedanceMatrix(Model, String, Property, Resource, boolean)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetImpedanceMatrix</code><span class="sig-paren">(</span>Model<em> mdl</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, Property<em> ptCount</em>, Resource<em> r</em>, boolean<em> bWantSec</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetImpedanceMatrix(Model, String, Property, Resource, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert CIM PerLengthPhaseImpedance to GridLAB-D line_configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>name</strong> – root name of the line_configuration(s), should be the CIM name</li>
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID, should be PerLengthPhaseImpedance</li>
+<li><strong>ptCount</strong> – an RDF property for the PerLengthPhaseImpedance.conductorCount</li>
+<li><strong>bWantSec</strong> – flags the inclusion of triplex, true except for debugging</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the GridLAB-D formatted impedance matrix for a line configuration. We have to write 3 of these in the case of 1-phase or 2-phase matrices. If (by name) it appears to be triplex and bWantSec is false, nothing will be returned.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getlinespacing">
+<h3>GetLineSpacing<a class="headerlink" href="#getlinespacing" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetLineSpacing(Model, Resource)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetLineSpacing</code><span class="sig-paren">(</span>Model<em> mdl</em>, Resource<em> rLine</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetLineSpacing(Model, Resource)" title="Permalink to this definition">¶</a></dt>
+<dd><p>needs to return the line_spacing and wire/cncable/tscable assignments for this rLine in GridLAB-D format</p>
+<p>TODO - this is not implemented, the emitted syntax is actually for OpenDSS</p>
+<ul class="simple">
+<li></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>rLine</strong> – an RDF resource corresponding to a CIM ACLineSegment that should have an associated AssetInfo</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">unusable OpenDSS input</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getmatidx">
+<h3>GetMatIdx<a class="headerlink" href="#getmatidx" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetMatIdx(int, int, int)">
+static int <code class="descname">GetMatIdx</code><span class="sig-paren">(</span>int<em> n</em>, int<em> row</em>, int<em> col</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetMatIdx(int, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts the [row,col] of nxn matrix into the sequence number for CIM PerLengthPhaseImpedanceData (only valid for the lower triangle) *</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> – 2x2 matrix order</li>
+<li><strong>row</strong> – first index of the element</li>
+<li><strong>col</strong> – second index</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">sequence number</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getpowertransformerdata">
+<h3>GetPowerTransformerData<a class="headerlink" href="#getpowertransformerdata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetPowerTransformerData(Model, Resource)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetPowerTransformerData</code><span class="sig-paren">(</span>Model<em> mdl</em>, Resource<em> rXf</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetPowerTransformerData(Model, Resource)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>rXf</strong> – an RDF resource corresponding to CIM PowerTransformer; it should have mesh impedance data</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">transformer and transformer_configuration objects in GridLAB-D format</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getpowertransformertanks">
+<h3>GetPowerTransformerTanks<a class="headerlink" href="#getpowertransformertanks" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetPowerTransformerTanks(Model, Resource, ResIterator, boolean)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetPowerTransformerTanks</code><span class="sig-paren">(</span>Model<em> mdl</em>, Resource<em> rXf</em>, ResIterator<em> itTank</em>, boolean<em> bWantSec</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetPowerTransformerTanks(Model, Resource, ResIterator, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>writes a PowerTransformer in GridLAB-D format, in the case where individual tranformer tanks that are connected together in a bank. GridLAB-D supports only 2-winding banks with same phasing on both sides, or single-phase, center-tapped secondary transformers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>rXf</strong> – an RDF resource corresponding to a CIM PowerTransformer that uses tank modeling</li>
+<li><strong>itTank</strong> – a Jena iterator on the tanks associated with rXf, known to be non-empty before this function is called</li>
+<li><strong>bWantSec</strong> – usually true, in order to include single-phase, center-tapped secondary transformers, which would come to this function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">transformer object in GridLAB-D format; the transformer_configuration comes from calling GetXfmrCode</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getpropvalue">
+<h3>GetPropValue<a class="headerlink" href="#getpropvalue" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetPropValue(Model, String, String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetPropValue</code><span class="sig-paren">(</span>Model<em> mdl</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> uri</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> prop</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetPropValue(Model, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>unprotected lookup of uri.prop value, to be deprecated in favor of SafeProperty</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>uri</strong> – an RDF resource, currently only an EquipmentContainer is used, and it should always exist</li>
+<li><strong>prop</strong> – currently only IdentifiedObject.name is used, and it should always exist</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the name of the CIM object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getregulatordata">
+<h3>GetRegulatorData<a class="headerlink" href="#getregulatordata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetRegulatorData(Model, Resource, String, String, String, String, String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetRegulatorData</code><span class="sig-paren">(</span>Model<em> mdl</em>, Resource<em> rXf</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> xfGroup</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> bus1</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> bus2</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phs</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetRegulatorData(Model, Resource, String, String, String, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connects a regulator in GridLAB-D format between bus1 and bus2; should be called from GetPowerTransformerTanks. In CIM, a regulator consists of a transformer plus the ratio tap changer, so if such is found, should call GetRegulatorData instead of just writing the transformer data in GetPowerTransformerTanks. Any impedance in the regulating transformer will be lost in the GridLAB-D model. Should be called from PowerTransformers that have RatioTapChangers attached, so we know that lookup will succeed</p>
+<p>TODO: implement regulators for tank transformers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>rXf</strong> – an RDF resource corresponding to a CIM PowerTransformer that has a RatioTapChanger associated</li>
+<li><strong>name</strong> – the name of the PowerTransformer (already looked up before calling this function)</li>
+<li><strong>xfGroup</strong> – the PowerTransformer’s IEC vector group (already looked up before calling this function)</li>
+<li><strong>bus1</strong> – first bus (ConnectivityNode) on the regulator (already looked up before calling this function)</li>
+<li><strong>bus2</strong> – second bus (ConnectivityNode) on the regulator (already looked up before calling this function)</li>
+<li><strong>phs</strong> – phases that contain A, B and/or C (already looked up before calling this function)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">regulator and regulator_configuration objects in GridLAB-D format</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getsequencelineconfigurations">
+<h3>GetSequenceLineConfigurations<a class="headerlink" href="#getsequencelineconfigurations" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetSequenceLineConfigurations(String, double, double, double, double, double, double)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetSequenceLineConfigurations</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, double<em> sqR1</em>, double<em> sqX1</em>, double<em> sqC1</em>, double<em> sqR0</em>, double<em> sqX0</em>, double<em> sqC0</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetSequenceLineConfigurations(String, double, double, double, double, double, double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>For balanced sequence impedance, return a symmetric phase impedance matrix for GridLAB-D. We have to write 7 variations to support all combinations of 3, 2 or 1 phases used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – is the root name for these 7 variations</li>
+<li><strong>sqR1</strong> – positive sequence resistance in ohms/mile</li>
+<li><strong>sqX1</strong> – positive sequence reactance in ohms/mile</li>
+<li><strong>sqC1</strong> – positive sequence capacitance in nF/mile</li>
+<li><strong>sqR0</strong> – zero sequence resistance in ohms/mile</li>
+<li><strong>sqX0</strong> – zero sequence reactance in ohms/mile</li>
+<li><strong>sqC0</strong> – zero sequence capacitance in nF/mile</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">text for 7 line_configuration objects</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getwdgconnection">
+<h3>GetWdgConnection<a class="headerlink" href="#getwdgconnection" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetWdgConnection(Resource, Property, String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetWdgConnection</code><span class="sig-paren">(</span>Resource<em> r</em>, Property<em> p</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> def</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetWdgConnection(Resource, Property, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>parse the CIM WindingConnection enumeration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID, should be a transformerEnd</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute, should be connectionKind</li>
+<li><strong>def</strong> – default value if property is not found, such as Y</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">D, Y, Z, Yn, Zn, A or I</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getwiredata">
+<h3>GetWireData<a class="headerlink" href="#getwiredata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetWireData(Model, Resource)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetWireData</code><span class="sig-paren">(</span>Model<em> mdl</em>, Resource<em> res</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetWireData(Model, Resource)" title="Permalink to this definition">¶</a></dt>
+<dd><p>needs to return overhead_line_conductor data in GridLAB-D format; res is the CIM OverheadWireInfo instance</p>
+<p>TODO - this is not implemented; the emitted syntax is actually for OpenDSS</p>
+<ul class="simple">
+<li></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>res</strong> – an RDF resource corresponding to CIM OverheadWireInfo</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">unusable OpenDSS input</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getxfmrcode">
+<h3>GetXfmrCode<a class="headerlink" href="#getxfmrcode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetXfmrCode(Model, String, double, double, boolean)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GetXfmrCode</code><span class="sig-paren">(</span>Model<em> mdl</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> id</em>, double<em> smult</em>, double<em> vmult</em>, boolean<em> bWantSec</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GetXfmrCode(Model, String, double, double, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translates a single TransformerTankInfo into GridLAB-D format. These transformers are described with short-circuit and open-circuit tests, which sometimes use non-SI units like percent and kW, as they appear on transformer test reports.</p>
+<p>TODO: smult and vmult may be removed, as they should always be 1 for valid CIM XML</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>id</strong> – CIM mRID corresponding to a CIM TransformerTankInfo</li>
+<li><strong>smult</strong> – scaling factor for converting winding ratings to volt-amperes (should be 1)</li>
+<li><strong>vmult</strong> – scaling factor for converting winding ratings to volts (should be 1)</li>
+<li><strong>bWantSec</strong> – usually true to include single-phase, center-tapped secondary tranformers, which come to this function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">transformer_configuration object in GridLAB-D format</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="gldprefixednodename">
+<h3>GldPrefixedNodeName<a class="headerlink" href="#gldprefixednodename" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldPrefixedNodeName(String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">GldPrefixedNodeName</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> arg</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.GldPrefixedNodeName(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>prefix all bus names with <cite>nd_</cite> for GridLAB-D, so they “should” be unique</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg</strong> – the root bus name, aka CIM name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">nd_arg</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="mergephases">
+<h3>MergePhases<a class="headerlink" href="#mergephases" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.MergePhases(String, String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">MergePhases</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phs1</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phs2</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.MergePhases(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>accumulate phases without duplication</p>
+</dd></dl>
+
+</div>
+<div class="section" id="phase-kind-string">
+<h3>Phase_Kind_String<a class="headerlink" href="#phase-kind-string" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Phase_Kind_String(String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">Phase_Kind_String</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> arg</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Phase_Kind_String(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>parses a single phase from CIM SinglePhaseKind</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg</strong> – CIM SinglePhaseKind enum</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A, B, C, N, s1 or s2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="phase-string">
+<h3>Phase_String<a class="headerlink" href="#phase-string" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Phase_String(String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">Phase_String</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> arg</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Phase_String(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>parses the phase string from CIM phaseCode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg</strong> – CIM PhaseCode enum</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">some combination of A, B, C, N, s1, s2, s12</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="safeboolean">
+<h3>SafeBoolean<a class="headerlink" href="#safeboolean" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeBoolean(Resource, Property, boolean)">
+static boolean <code class="descname">SafeBoolean</code><span class="sig-paren">(</span>Resource<em> r</em>, Property<em> p</em>, boolean<em> def</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeBoolean(Resource, Property, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>look up Jena boolean value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute</li>
+<li><strong>def</strong> – default value if property is not found</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">boolean value, or default if not found</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="safedouble">
+<h3>SafeDouble<a class="headerlink" href="#safedouble" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeDouble(Resource, Property, double)">
+static double <code class="descname">SafeDouble</code><span class="sig-paren">(</span>Resource<em> r</em>, Property<em> p</em>, double<em> def</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeDouble(Resource, Property, double)" title="Permalink to this definition">¶</a></dt>
+<dd><p>look up Jena double value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute</li>
+<li><strong>def</strong> – default value if property is not found</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">double value, or default if not found</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="safeint">
+<h3>SafeInt<a class="headerlink" href="#safeint" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeInt(Resource, Property, int)">
+static int <code class="descname">SafeInt</code><span class="sig-paren">(</span>Resource<em> r</em>, Property<em> p</em>, int<em> def</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeInt(Resource, Property, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>look up Jena integer value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute</li>
+<li><strong>def</strong> – default value if property is not found</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">integer value, or default if not found</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="safephasesx">
+<h3>SafePhasesX<a class="headerlink" href="#safephasesx" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafePhasesX(Resource, Property)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">SafePhasesX</code><span class="sig-paren">(</span>Resource<em> r</em>, Property<em> p</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafePhasesX(Resource, Property)" title="Permalink to this definition">¶</a></dt>
+<dd><p>look up Jena phase property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">phases in string format, or ABCN if not found</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="safeproperty">
+<h3>SafeProperty<a class="headerlink" href="#safeproperty" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeProperty(Resource, Property, String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">SafeProperty</code><span class="sig-paren">(</span>Resource<em> r</em>, Property<em> p</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> def</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeProperty(Resource, Property, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>look up Jena string property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute</li>
+<li><strong>def</strong> – default value if property is not found</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the property (or default value) as a string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="saferegulatingmode">
+<h3>SafeRegulatingMode<a class="headerlink" href="#saferegulatingmode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeRegulatingMode(Resource, Property, String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">SafeRegulatingMode</code><span class="sig-paren">(</span>Resource<em> r</em>, Property<em> p</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> def</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeRegulatingMode(Resource, Property, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>parse the CIM regulating control mode enum</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute</li>
+<li><strong>def</strong> – default value if property is not found</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">voltage, timeScheduled, reactivePower, temperature, powerFactor, currentFlow, userDefined</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="saferesname">
+<h3>SafeResName<a class="headerlink" href="#saferesname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeResName(Resource, Property)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">SafeResName</code><span class="sig-paren">(</span>Resource<em> r</em>, Property<em> p</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeResName(Resource, Property)" title="Permalink to this definition">¶</a></dt>
+<dd><p>for components (not buses) returns the CIM name from r.p attribute if it exists, or the r.mrID if not, in GridLAB-D format</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a name compatible with GridLAB-D</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="saferesourcelookup">
+<h3>SafeResourceLookup<a class="headerlink" href="#saferesourcelookup" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeResourceLookup(Model, Property, Resource, Property, String)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">SafeResourceLookup</code><span class="sig-paren">(</span>Model<em> mdl</em>, Property<em> ptName</em>, Resource<em> r</em>, Property<em> p</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> def</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.SafeResourceLookup(Model, Property, Resource, Property, String)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>ptName</strong> – should be the IdentifiedObject.Name property of the resource we are looking for</li>
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute</li>
+<li><strong>def</strong> – default value if property is not found</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the GridLAB-D formatted name of a resource referenced by r.p</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="shunt-delta">
+<h3>Shunt_Delta<a class="headerlink" href="#shunt-delta" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Shunt_Delta(Resource, Property)">
+static boolean <code class="descname">Shunt_Delta</code><span class="sig-paren">(</span>Resource<em> r</em>, Property<em> p</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.Shunt_Delta(Resource, Property)" title="Permalink to this definition">¶</a></dt>
+<dd><p>for loads and capacitors, returns true only if CIM PhaseShuntConnectionKind indicates delta</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID, should be LinearShuntCompensator or EnergyConsumer</li>
+<li><strong>p</strong> – an RDF property, will be a CIM attribute for phaseConnection</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if delta connection</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="wirephases">
+<h3>WirePhases<a class="headerlink" href="#wirephases" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.WirePhases(Model, Resource, Property, Property)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="descname">WirePhases</code><span class="sig-paren">(</span>Model<em> mdl</em>, Resource<em> r</em>, Property<em> p1</em>, Property<em> p2</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.WirePhases(Model, Resource, Property, Property)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns GridLAB-D formatted phase string by accumulating CIM single phases, if such are found, or assuming ABC if not found. Note that in CIM, secondaries have their own phases s1 and s2. *</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mdl</strong> – an RDF model (set of statements) read from the CIM imput file</li>
+<li><strong>r</strong> – an RDF resource, will have a CIM mrID, should be something that can have single phases attached</li>
+<li><strong>p1</strong> – an RDF property, will be a CIM attribute, should associate from a single phase back to r</li>
+<li><strong>p2</strong> – an RDF property, will be a CIM attribute, should be the single phase instance’s phase attribute</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">concatenation of A, B, C, s1 and/or s2 based on the found individual phases</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="main">
+<h3>main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="gov.pnnl.gridlabd.cim.CDPSM_to_GLM.main(String[])">
+public static void <code class="descname">main</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>[]<em> args</em><span class="sig-paren">)</span><a class="headerlink" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM.main(String[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads command-line input for the converter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> – will be CDPSM_to_GLM [options] input.xml output_root</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/FileNotFoundException.html" title="java.io.FileNotFoundException"><strong>java.io.FileNotFoundException</strong></a> – if the CIM RDF input file is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Options</strong>:</p>
+<p>-l={0..1} load scaling factor, defaults to 1</p>
+<p>-t={y|n} triplex; y/n to include or ignore secondaries. Defaults to yes. Use no for debugging only, as all secondary load will be ignored.</p>
+<p>-e={u|i} encoding; UTF-8 or ISO-8859-1. No default, so this should be specified. Choose ‘u’ if the CIM file came frome OpenDSS.</p>
+<p>-f={50|60} system frequency; defaults to 60</p>
+<p>-v={1|0.001} multiplier that converts CIM voltage to V for GridLAB-D; defaults to 1</p>
+<p>-s={1000|1|0.001} multiplier that converts CIM p,q,s to VA for GridLAB-D; defaults to 1</p>
+<p>-q={y|n} are unique names used? If yes, they are used as unique GridLAB-D names. If no, the CIM mrID is de-mangled to create a unique GridLAB-D name, but this option is only implemented for ACLineSegments as written to some earlier GIS profiles.</p>
+<p>-n={schedule_name} root filename for scheduled ZIPloads (defaults to none)</p>
+<p>-z={0..1} constant Z portion (defaults to 0 for CIM-defined LoadResponseCharacteristic)</p>
+<p>-i={0..1} constant I portion (defaults to 0 for CIM-defined LoadResponseCharacteristic)</p>
+<p>-p={0..1} constant P portion (defaults to 0 for CIM-defined LoadResponseCharacteristic)</p>
+<p><strong>Example:</strong> java CDPSM_to_GLM -l=1 -e=u -i=1 ieee8500.xml ieee8500</p>
+<p>Assuming Jena and Commons-Math are in Java’s classpath, this will produce two output files:</p>
+<ol class="arabic">
+<li><p class="first"><strong>ieee8500_base.glm</strong> with GridLAB-D components for a constant-current model at peak load. This file includes an adjustable source voltage and manual capacitor/tap changer states. It should be invoked from a separate GridLAB-D file that sets up the clock, solver, recorders, etc. For example, these two GridLAB-D input lines set up 1.05 per-unit source voltage on a 115-kV system:</p>
+<ul class="simple">
+<li>#define VSOURCE=69715.065 // 66395.3 * 1.05</li>
+<li>#include “ieee8500_base.glm”</li>
+</ul>
+<p>If there were capacitor/tap changer controls in the CIM input file, that data was written to ieee8500_base.glm as comments, which can be recovered through manual edits.</p>
+</li>
+<li><p class="first"><strong>ieee8500_busxy.glm</strong> with bus geographic coordinates, used in GridAPPS-D but not GridLAB-D</p>
+</li>
+</ol>
+<p><strong>Cautions:</strong> this converter does not yet implement all variations in the CIM for unbalanced power flow.</p>
+<ol class="arabic simple">
+<li>AssetInfo links to WireSpacing, OverheadWireInfo, ConcentricNeutralCableInfo and TapeShieldCableInfo</li>
+<li>PerLengthSequenceImpedance has not been tested</li>
+<li>Capacitor power factor control mode - not in GridLAB-D</li>
+<li>Capacitor user-defined control mode - not in GridLAB-D</li>
+<li>Capacitor controlled by load (EnergyConsumer) - need to name loads</li>
+<li>Line ratings for PerLengthImpedance</li>
+<li>Dielectric constant (epsR) for cables - not in CIM</li>
+<li>Soil resistivity (rho) for line impedance - not in CIM</li>
+<li>Multi-winding transformers other than centertap secondary-not in GridLAB-D</li>
+<li>Unbalanced transformer banks - not in GridLAB-D</li>
+<li>Autotransformers have not been tested</li>
+<li>schedule_name implemented for secondary loads only, primary loads to be done</li>
+<li>Fuse not implemented</li>
+<li>Breaker not implemented</li>
+<li>Jumper not implemented</li>
+<li>Disconnector not implemented</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Throws:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/UnsupportedEncodingException.html" title="java.io.UnsupportedEncodingException"><strong>java.io.UnsupportedEncodingException</strong></a> – if the UTF encoding flag is wrong</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>See also:</strong> <a class="reference internal" href="#gov.pnnl.gridlabd.cim.CDPSM_to_GLM" title="gov.pnnl.gridlabd.cim.CDPSM_to_GLM"><code class="xref java java-ref docutils literal notranslate"><span class="pre">CDPSM_to_GLM</span></code></a></p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CDPSM_to_GLM-GldNode.html" class="btn btn-neutral float-right" title="CDPSM_to_GLM.GldNode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../../../index.html" class="btn btn-neutral" title="API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Battelle Memorial Institute All rights reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

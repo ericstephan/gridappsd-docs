@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>UML for Release Cycle 1 &mdash; GridAPPS-D 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="GridAPPS-D 1.0 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GridAPPS-D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing_gridappsd/index.html">Installing GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gridappsd/index.html">Using GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">GridAPPS-D Development Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model/index.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html">Integrated Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#state-estimator">State Estimator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#model-validator">Model Validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#distribution-optimal-power-flow-for-real-time-setpoint-dispatch">Distribution Optimal Power Flow for Real-Time Setpoint Dispatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_docs/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license/license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GridAPPS-D</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>UML for Release Cycle 1</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer_resources/RC1_Tasks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="uml-for-release-cycle-1">
+<span id="rc1-diagrams-label"></span><h1>UML for Release Cycle 1<a class="headerlink" href="#uml-for-release-cycle-1" title="Permalink to this headline">¶</a></h1>
+<p>Our objective is to demonstrate useful functionality, which is
+standards-compliant, by the end of March 2017. A simple heuristic VVO
+application will be running in GridAPPS-D. In terms of the Functional
+Requirements, we will be implementing:</p>
+<ul class="simple">
+<li>102/202 Command Interface</li>
+<li>301 Real-time Simulation Data</li>
+<li>310 Hosted Application, but short-cutting the registration process</li>
+<li>401 Distribution Co-Simulator (partial)</li>
+<li>402 Process Manager (partial)</li>
+<li>404 Data Manager (partial)</li>
+<li>405 Simulation Manager (partial)</li>
+<li>406 Power System Model Manager (partial)</li>
+<li>413 Platform Manager (encapsulating 401 and 403-406)</li>
+</ul>
+<p>This represents five out of twelve Internal Functions from the
+Functional Requirements, in partial form. The deadline leaves four
+months for detailed design and implementation, plus two months for
+documentation and testing. Therefore, we have chosen a minimal set of
+functions that can show end-to-end use of GridAPPS-D at the first
+milestone.</p>
+<p>In developing the work breakdown structure (WBS), we noted that
+real-time simulation data is published with no time lags or errors in
+Release 1. However, data flow in a real DMS is affected by sensor and
+communication system performance, and also by the action of other
+subsystems. In Release 2, this might be addressed through some
+combination of:</p>
+<ul class="simple">
+<li>Communication and sensor models in the Distribution Co-Simulator</li>
+<li>Adding MDM and SCADA service attributes to the 407 Service Manager</li>
+<li>Filters on 301 Real-time Simulation Data</li>
+</ul>
+<p>These decisions, and many others affecting Release 2 and Release 3, can
+be deferred until we gain experience developing Release 1.</p>
+<p>Figure 1 shows the software components planned for Release 1. Most of
+these correspond to internal functions from the Functional Requirements,
+with some relatively minor re-factoring. The Power System Model Manager
+functionality has been split. The data store management and the creation
+of a complete GridLAB-D model appear at the bottom. Once the simulator
+is running, incremental changes are posted to the messaging bus.</p>
+<p>Most of the “pink” components in Figure 1 are assigned to one task,
+except:</p>
+<ul class="simple">
+<li>The 310 VVO is a sub-task of the Command Interface, due to the close
+coupling of those efforts. The team on this task needs both power
+system and software skills.</li>
+<li>A separate task has been added for some project-level items.</li>
+</ul>
+<p><img alt="rc1_tasks_image0" src="../_images/uml_DomainObjects.png" /></p>
+<p>Figure 1: Component Diagram for GridAPPS-D Release 1</p>
+</div>
+<div class="section" id="initial-work-breakdown-for-release-cycle-1">
+<h1>Initial Work Breakdown for Release Cycle 1<a class="headerlink" href="#initial-work-breakdown-for-release-cycle-1" title="Permalink to this headline">¶</a></h1>
+<p>The Release 1 work breaks down into seven tasks, listed below. Three
+<strong>critical items must be completed first</strong>; these are highlighted in
+red. There are other inter-task dependencies that have not yet been
+called out. We plan to sequence the work over eight two-week “sprints”
+within the four months allocated for detailed design and development,
+using an agile process (Kanban).</p>
+<ol class="arabic simple">
+<li>Project-level Elements<ol class="loweralpha">
+<li><strong>Identify a power system model (note: IEEE-13 is already in
+CIM/CDPSM)</strong></li>
+<li>Design data store schema</li>
+<li>Manually ingest power system models</li>
+</ol>
+</li>
+<li>Command Interface<ol class="loweralpha">
+<li>Design APIs<ol class="lowerroman">
+<li>For all configurations in Task 4</li>
+<li>For power system control actions (e.g. open/close switch)</li>
+</ol>
+</li>
+<li><strong>Select one language binding</strong> (e.g. Python, Java, C++, MATLAB)
+and implement</li>
+<li>Develop a heuristic volt-var application (VVO) in the bound
+language</li>
+<li>Integrate VVO into GridAPPS-D</li>
+</ol>
+</li>
+<li>Messaging and Data Manager<ol class="loweralpha">
+<li><strong>Select a messaging framework (eg. ZeroMQ)</strong></li>
+<li>Create communication APIs</li>
+<li>Receives real-time data from simulator</li>
+<li>Receives power system control actions</li>
+<li>Handle communication between GridAPPS-D managers</li>
+<li>Log messages to file</li>
+</ol>
+</li>
+<li>Configuration Manager (both Power System Config &amp; Simulation Config)<ol class="loweralpha">
+<li>Receive configurations from command interface over message bus</li>
+<li>Translate configurations to native GridLAB-D</li>
+<li>Translate and publish incremental update messages</li>
+<li>Send configurations to Process Manager for simulation start</li>
+</ol>
+</li>
+<li>Process Manager<ol class="loweralpha">
+<li>Receives configurations from the Configuration Manager</li>
+<li>Send configuration to the Distribution Co-Simulator</li>
+<li>Start Co-Simulation Process</li>
+<li>Create simulation data channels and inform application</li>
+<li>Stop simulation process</li>
+</ol>
+</li>
+<li>Distribution Co-Simulator (wraps GridLAB-D)<ol class="loweralpha">
+<li>Accepts configurations from Process Manager</li>
+<li>Start simulation</li>
+<li>Produce and publish data in real time</li>
+<li>Accept changes in real time (e.g. capacitor switching) via message
+bus</li>
+</ol>
+</li>
+<li>Power System Model Manager<ol class="loweralpha">
+<li>Access the power system model in data store</li>
+<li>Create native GridLAB-D file for initial loading into the
+simulator</li>
+</ol>
+</li>
+</ol>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Battelle Memorial Institute All rights reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

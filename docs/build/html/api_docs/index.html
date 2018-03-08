@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Documentation &mdash; GridAPPS-D 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="GridAPPS-D 1.0 documentation" href="../index.html"/>
+        <link rel="next" title="CDPSM_to_GLM" href="gov/pnnl/gridlabd/cim/CDPSM_to_GLM.html"/>
+        <link rel="prev" title="Integrated Applications" href="../hosted_applications/index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GridAPPS-D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing_gridappsd/index.html">Installing GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gridappsd/index.html">Using GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_resources/index.html">GridAPPS-D Development Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model/index.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html">Integrated Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#state-estimator">State Estimator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#model-validator">Model Validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#distribution-optimal-power-flow-for-real-time-setpoint-dispatch">Distribution Optimal Power Flow for Real-Time Setpoint Dispatch</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gridapps-d">GridAPPS-D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#goss">GOSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fncs">FNCS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vvo">VVO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gridlab-d">GridLAB-D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gov-pnnl-gridlabd-cim">gov.pnnl.gridlabd.cim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gov/pnnl/gridlabd/cim/CDPSM_to_GLM.html">CDPSM_to_GLM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gov/pnnl/gridlabd/cim/CDPSM_to_GLM-GldNode.html">CDPSM_to_GLM.GldNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gov/pnnl/gridlabd/cim/CDPSM_to_GLM-SpacingCount.html">CDPSM_to_GLM.SpacingCount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gov/pnnl/gridlabd/cim/SPARQLcimTest.html">SPARQLcimTest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license/license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GridAPPS-D</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>API Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api_docs/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-documentation">
+<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="gridapps-d">
+<h2>GridAPPS-D<a class="headerlink" href="#gridapps-d" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="goss">
+<h2>GOSS<a class="headerlink" href="#goss" title="Permalink to this headline">¶</a></h2>
+<p>The GridOPTICS Software System (GOSS) manages the platform data and message bus; its overall design is described in <a class="reference internal" href="../overview/index.html#cit6" id="id1">[CIT6]</a>.</p>
+</div>
+<div class="section" id="fncs">
+<h2>FNCS<a class="headerlink" href="#fncs" title="Permalink to this headline">¶</a></h2>
+<p>The Framework for Network Co-simulation (FNCS) manages the time clock and message traffic between platform simulators; its overall design is described in <a class="reference internal" href="../overview/index.html#cit7" id="id2">[CIT7]</a>.
+For API documentation see <a class="reference external" href="https://github.com/FNCS/fncs/wiki">https://github.com/FNCS/fncs/wiki</a> .</p>
+</div>
+<div class="section" id="vvo">
+<h2>VVO<a class="headerlink" href="#vvo" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="gridlab-d">
+<h2>GridLAB-D<a class="headerlink" href="#gridlab-d" title="Permalink to this headline">¶</a></h2>
+<p>GridLAB-D is the distribution grid simulator within the platform; its overall design is described in <a class="reference internal" href="../overview/index.html#cit8" id="id3">[CIT8]</a>.</p>
+</div>
+<div class="section" id="gov-pnnl-gridlabd-cim">
+<h2>gov.pnnl.gridlabd.cim<a class="headerlink" href="#gov-pnnl-gridlabd-cim" title="Permalink to this headline">¶</a></h2>
+<p>This Java package converts CIM RDF to GridLAB-D format.</p>
+<span class="target" id="package-gov.pnnl.gridlabd.cim"></span><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gov/pnnl/gridlabd/cim/CDPSM_to_GLM.html">CDPSM_to_GLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gov/pnnl/gridlabd/cim/CDPSM_to_GLM-GldNode.html">CDPSM_to_GLM.GldNode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gov/pnnl/gridlabd/cim/CDPSM_to_GLM-SpacingCount.html">CDPSM_to_GLM.SpacingCount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gov/pnnl/gridlabd/cim/SPARQLcimTest.html">SPARQLcimTest</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gov/pnnl/gridlabd/cim/CDPSM_to_GLM.html" class="btn btn-neutral float-right" title="CDPSM_to_GLM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../hosted_applications/index.html" class="btn btn-neutral" title="Integrated Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Battelle Memorial Institute All rights reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

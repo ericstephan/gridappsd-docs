@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FNCS &mdash; GridAPPS-D 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="GridAPPS-D 1.0 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GridAPPS-D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Installing GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using_gridappsd/index.html">Using GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_resources/index.html">GridAPPS-D Development Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model/index.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html">Integrated Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#state-estimator">State Estimator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#model-validator">Model Validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#distribution-optimal-power-flow-for-real-time-setpoint-dispatch">Distribution Optimal Power Flow for Real-Time Setpoint Dispatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_docs/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license/license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GridAPPS-D</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>FNCS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/installing_gridappsd/FNCS_build_instructions.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fncs">
+<span id="fncs"></span><h1>FNCS<a class="headerlink" href="#fncs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>FNCS is the co-simulation engine used by GridAPP-D’s simulation manager class to facilitating real-time synchonization and message passing between the GridLAB-D simulation and the GOSS message bus.</p>
+</div>
+<div class="section" id="source-code">
+<span id="source-code"></span><h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>FNCS is maintained by PNNL. The repository is located at https://github.com/FNCS/fncs. GridAPPS-D is using the latest release of FNCS which is v2.3.2.</p>
+</div>
+<div class="section" id="fncs-documentation">
+<span id="fncs-documentation"></span><h2>FNCS Documentation<a class="headerlink" href="#fncs-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The documentation for FNCS is located at https://github.com/FNCS/fncs/wiki.</p>
+</div>
+<div class="section" id="building-and-installing-the-source">
+<span id="building-and-installing-the-source"></span><h2>Building and Installing the Source<a class="headerlink" href="#building-and-installing-the-source" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linux">
+<span id="linux"></span><h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="prerequisites">
+<span id="prerequisites"></span><h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h4>
+<p>FNCS requires both the ZeroMQ and CZMQ libraries. For the purposes of the tutorial FNCS and it’s prerequisites will be installed a custom location refered to by $FNCS_INSTALL. All source code is downloaded to the $HOME directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># download and install ZeroMQ</span>
+:~$ wget http://download.zeromq.org/zeromq-3.2.4.tar.gz
+<span class="c1"># if you do not have wget, use</span>
+<span class="c1"># curl -O http://download.zeromq.org/zeromq-3.2.4.tar.gz</span>
+
+<span class="c1"># unpack zeromq, change to its directory</span>
+:~$ tar -xzf zeromq-3.2.4.tar.gz
+:~$ <span class="nb">cd</span> zeromq-3.2.4
+
+<span class="c1"># configure, make, and make install </span>
+:~/zeromq-3.2.4$ ./configure --prefix<span class="o">=</span><span class="nv">$FNCS_INSTALL</span>
+:~/zeromq-3.2.4$ make
+:~/zeromq-3.2.4$ make install
+
+<span class="c1"># download and install CZMQ</span>
+:~/zeromq-3.2.4$ <span class="nb">cd</span> <span class="nv">$HOME</span>
+
+:~$ wget http://download.zeromq.org/czmq-3.0.0-rc1.tar.gz
+<span class="c1"># if you do not have wget, use</span>
+<span class="c1"># curl -O http://download.zeromq.org/czmq-3.0.0-rc1.tar.gz</span>
+
+<span class="c1"># unpack czmq, change to its directory</span>
+:~$ tar -xzf czmq-3.0.0-rc1.tar.gz
+:~$ <span class="nb">cd</span> czmq-3.0.0
+
+<span class="c1"># configure, make, and make install </span>
+:~/czmq-3.0.0$ ./configure --prefix<span class="o">=</span><span class="nv">$FNCS_INSTALL</span> --with-libzmq<span class="o">=</span><span class="nv">$FNCS_INSTALL</span>
+:~/czmq-3.0.0$ make
+:~/czmq-3.0.0$ make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-fncs">
+<span id="building-fncs"></span><h4>Building FNCS<a class="headerlink" href="#building-fncs" title="Permalink to this headline">¶</a></h4>
+<p>In this tutorial FNCS source code will be downloaded using git to the $HOME directory. The code will be installed at t/FNCShe loacation $FNCS_INSTALL.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># download FNCS</span>
+:~$ git clone https://github.com/FNCS/fncs.git
+
+<span class="c1"># change to FNCS directory</span>
+:~$ <span class="nb">cd</span> fncs
+
+<span class="c1"># configure, make, and make install </span>
+:~/fncs$ ./configure --prefix<span class="o">=</span><span class="nv">$FNCS_INSTALL</span> --with-zmq<span class="o">=</span><span class="nv">$FNCS_INSTALL</span>
+:~/fncs$ make
+:~/fncs$ make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="environment-setup">
+<span id="environment-setup"></span><h4>Environment Setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline">¶</a></h4>
+<p>In order for GridAPPS-D to be able to run FNCS and for GridLAB-D to be built with FNCS The following environment variables need to be setup:</p>
+<ul class="simple">
+<li>$PATH must contain $FNCS_INSTALL/bin</li>
+<li>$LD_LIBRARY_PATH must contain $FNCS_INSTALL/lib</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Battelle Memorial Institute All rights reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

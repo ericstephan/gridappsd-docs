@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RC1 Demonstration &mdash; GridAPPS-D 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="GridAPPS-D 1.0 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GridAPPS-D
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing_gridappsd/index.html">Installing GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Using GridAPPS-D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_resources/index.html">GridAPPS-D Development Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_model/index.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html">Integrated Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#state-estimator">State Estimator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#model-validator">Model Validator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hosted_applications/index.html#distribution-optimal-power-flow-for-real-time-setpoint-dispatch">Distribution Optimal Power Flow for Real-Time Setpoint Dispatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_docs/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license/license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GridAPPS-D</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>RC1 Demonstration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/using_gridappsd/rc1_overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rc1-demonstration">
+<h1>RC1 Demonstration<a class="headerlink" href="#rc1-demonstration" title="Permalink to this headline">¶</a></h1>
+<p>In order to run the RC1 demonstration you will need to have access to the GridDAPPS-D docker containers.</p>
+<div class="section" id="start-gridappsd">
+<h2>Start gridappsd<a class="headerlink" href="#start-gridappsd" title="Permalink to this headline">¶</a></h2>
+<p>Connect to the running gridappsd container</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@foo&gt;docker <span class="nb">exec</span> -it gridappsddocker_gridappsd_1 bash
+</pre></div>
+</div>
+<p>Now we are inside the executing container</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@737c30c82df7:/gridappsd# ./gridappsd.run.sh
+</pre></div>
+</div>
+<p>Open your browser to <a class="reference external" href="http://localhost:8080/ieee8500">http://localhost:8080/ieee8500</a></p>
+<p>Click the triangle in the top right corner to have a simulation run.</p>
+<p>The demonstration runs a continuous loop of load variations with a
+Volt-Var Optimization (VVO) application <a class="reference internal" href="../overview/index.html#cit5" id="id1">[CIT5]</a> controlling capacitor
+banks on the IEEE 8500-node test system <a class="reference internal" href="../overview/index.html#cit2" id="id2">[CIT2]</a>.  Most of Figure 1 is
+devoted to a map layout view of the test circuit, with updated labels for
+capacitor banks and voltage regulators.  On the right-hand side, strip
+chart plots of the phase ABC voltages at capacitors and regulators, phase
+ABC substation power levels, and phase ABC regulator taps are continually
+updated.  Capacitor bank labels on the circuit map view change between
+OPEN and CLOSED to show the bank status as load varies and the VVO
+application issues control commands.  While GridAPPS-D runs the demo,
+GridLAB-D <a class="reference internal" href="../overview/index.html#cit8" id="id3">[CIT8]</a> simulates power system operation and exchanges
+information with the VVO application using GOSS <a class="reference internal" href="../overview/index.html#cit6" id="id4">[CIT6]</a> and FNCS <a class="reference internal" href="../overview/index.html#cit7" id="id5">[CIT7]</a>.</p>
+<p>For an orderly shutdown of the demonstration:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Use Ctrl+C to stop gridappsd from running
+<span class="nb">exit</span>
+./stop.sh
+</pre></div>
+</div>
+<p><img alt="rc1_overview_image0" src="../_images/rc1_demo.png" /></p>
+<p>Figure 1: GridAPPS-D Release Cycle 1 Demo of the Volt-Var Optimization Running on the IEEE 8500-node test system.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Battelle Memorial Institute All rights reserved..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
