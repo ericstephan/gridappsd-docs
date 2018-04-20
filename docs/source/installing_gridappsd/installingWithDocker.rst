@@ -37,6 +37,7 @@ Install Docker on Ubuntu
 
      ./docker_install_ubuntu.sh
 ..
+
   * log out of your Ubuntu session and log back in to make the docker groups change active
 
 Start the docker container services
