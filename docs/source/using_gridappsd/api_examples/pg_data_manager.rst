@@ -11,7 +11,7 @@ Example Request:
 
 Example Response for result format JSON:
 ::
-	{"modelNames":["_49A{
+	{
 		"modelNames": ["_49AD8E07-3BF9-A4E2-CB8F-C3722F837B62",
 		"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
 		"_5B816B93-7A5F-B64C-8460-47C17D6E4B0F",
