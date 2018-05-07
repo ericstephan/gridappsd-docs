@@ -28,6 +28,16 @@ Starting Simulation Using Viz Application
 
 .. include:: starting_in_viz.rst
 
+
+Query for Powergrid Model information
+-----------------------------
+.. include:: api_examples/pg_data_manager.rst
+
+Retrieve Specific Configurations
+-----------------------------
+.. include:: api_examples/config_data_manager.rst
+
+
 Logging messages and process status
 -----------------------------------
 
