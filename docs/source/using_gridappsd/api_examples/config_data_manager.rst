@@ -9,10 +9,24 @@ Optional: parameters[i_fraction, p_fraction, z_fraction, load_scaling_factor, sc
 Request: goss.gridappsd.process.request.config
 ::
   {
-  "configurationType":"GridLAB-D All",
-  "parameters":
-    {"load_scaling_factor":"1.0","i_fraction":"1.0","model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3","p_fraction":"0.0","simulation_id":"12345","z_fraction":"0.0","simulation_broker_host":"localhost","simulation_name":"ieee8500","simulation_duration":"60","simulation_start_time":"2018-02-18 00:00:00","solver_method":"NR","schedule_name":"ieeezipload","simulation_broker_port":"61616","directory":"/tmp/gridlabdsimulation/"}
-   }
+    "configurationType": "GridLAB-D All",
+    "parameters": {
+      "load_scaling_factor": "1.0",
+      "i_fraction": "1.0",
+      "model_id": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
+      "p_fraction": "0.0",
+      "simulation_id": "12345",
+      "z_fraction": "0.0",
+      "simulation_broker_host": "localhost",
+      "simulation_name": "ieee8500",
+      "simulation_duration": "60",
+      "simulation_start_time": "2018-02-18 00:00:00",
+      "solver_method": "NR",
+      "schedule_name": "ieeezipload",
+      "simulation_broker_port": "61616",
+      "directory": "/tmp/gridlabdsimulation/"
+    }
+  }
 
 Response:
 <directory where files have been stored>
@@ -24,8 +38,18 @@ Required: configurationType, parameters[model_id]
 Optional: parameters[i_fraction, p_fraction, z_fraction, load_scaling_factor, schedule_name]
 Request:  goss.gridappsd.process.request.config
 ::
-  {"configurationType":"GridLAB-D Base GLM","parameters":{"i_fraction":"1.0","z_fraction":"0.0","model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3","load_scaling_factor":"1.0","schedule_name":"ieeezipload","p_fraction":"0.0"}}
-
+  {
+    "configurationType": "GridLAB-D Base GLM",
+    "parameters": {
+      "i_fraction": "1.0",
+      "z_fraction": "0.0",
+      "model_id": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
+      "load_scaling_factor": "1.0",
+      "schedule_name": "ieeezipload",
+      "p_fraction": "0.0"
+    }
+  }
+  
 Response:
 ::
   object regulator_configuration {
@@ -39,13 +63,19 @@ Response:
 Required: configurationType, parameters[model_id]
 Request:  goss.gridappsd.process.request.config
 ::
-  {"configurationType":"GridLAB-D Symbols","parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}}
-
+  {
+    "configurationType": "GridLAB-D Symbols",
+    "parameters": {
+      "model_id": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"
+    }
+  }
+  
 Response:
 ::
   {"feeder":[
   {"swing_nodes":[
-  {"name":"source","bus":"sourcebus","phases":"ABC","nominal_voltage":66395.3,"x1":1693780.0,"y1":1.22775777570982E7}
+  {"name":"source","bus":"sourcebus","phases":"ABC",
+    "nominal_voltage":66395.3,"x1":1693780.0,"y1":1.22775777570982E7}
   ]},
   {"capacitors":[
   .......
@@ -56,7 +86,10 @@ Response:
 Required: configurationType, parameters[model_id]
 Request: goss.gridappsd.process.request.config
 ::
-  {"configurationType":"CIM Dictionary","parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}}
+  {
+    "configurationType":"CIM Dictionary",
+    "parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}
+   }
 
 Response:
 ::
@@ -98,7 +131,10 @@ Response:
 Required: configurationType, parameters[model_id]
 Request: goss.gridappsd.process.request.config
 ::
-  {"configurationType":"CIM Feeder Index","parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}}
+  {
+    "configurationType":"CIM Feeder Index",
+    "parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}
+   }
 
 Response:
 ::
@@ -113,7 +149,10 @@ Response:
 Required: configurationType, parameters[model_id]
 Request: goss.gridappsd.process.request.config
 ::
-  {"configurationType":"CIM Feeder Index","parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}}
+  {
+    "configurationType":"CIM Feeder Index",
+    "parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}
+   }
 
 Response:
 ::
