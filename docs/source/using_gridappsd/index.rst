@@ -33,7 +33,7 @@ Query for Powergrid Model information
 -----------------------------
 .. include:: api_examples/pg_data_manager.rst
 
-Retrieve Specific Configurations
+Configuration File API
 -----------------------------
 .. include:: api_examples/config_data_manager.rst
 
