@@ -4,8 +4,9 @@
 
 - **Request all GridLAB-D configuration files**
 
-Required: configurationType, parameters[model_id,directory,simulationname,simulation_start_time,simulation_duration,simulation_id,simulation_broker_host,simulation_broker_port]
-Optional: parameters[i_fraction, p_fraction, z_fraction, load_scaling_factor, schedule_name,solver_method]
+- Required: configurationType, parameters[model_id,directory,simulationname,simulation_start_time,simulation_duration,simulation_id,simulation_broker_host,simulation_broker_port]
+- Optional: parameters[i_fraction, p_fraction, z_fraction, load_scaling_factor, schedule_name,solver_method]
+
 Request: goss.gridappsd.process.request.config
 ::
   {
@@ -34,8 +35,9 @@ Response:
   
 - **Request GridLAB-D base file**
 
-Required: configurationType, parameters[model_id]
-Optional: parameters[i_fraction, p_fraction, z_fraction, load_scaling_factor, schedule_name]
+- Required: configurationType, parameters[model_id]
+- Optional: parameters[i_fraction, p_fraction, z_fraction, load_scaling_factor, schedule_name]
+
 Request:  goss.gridappsd.process.request.config
 ::
   {
