@@ -32,7 +32,9 @@ Response:
 <directory where files have been stored>
   
   
-**Request GridLAB-D base file** - Generates the main GLM file required by the GridLAB-D simulator
+Request GridLAB-D Base File
+^^^^^^^
+Generates the main GLM file required by the GridLAB-D simulator
 
 - Required: configurationType, parameters[model_id]
 - Optional: parameters[i_fraction, p_fraction, z_fraction, load_scaling_factor, schedule_name]
@@ -59,7 +61,9 @@ Response:
     Control MANUAL; // OUTPUT_VOLTAGE;
   .......
 
-**Request GridLAB-D symbols file** - Generates the symbols file with XY coordinates used by the GridLAB-D simulator
+Request GridLAB-D Symbols File
+^^^^^^^
+Generates the symbols file with XY coordinates used by the GridLAB-D simulator
 
 - Required: configurationType, parameters[model_id]
 
@@ -83,7 +87,9 @@ Response:
   .......
 
 
-**Request CIM Dictionary file** - Generates a dictionary file which maps between the mrid identifiers used by the CIM model and the other names of model objects used by simulators.
+Request CIM Dictionary file
+^^^^^^^
+Generates a dictionary file which maps between the mrid identifiers used by the CIM model and the other names of model objects used by simulators.
 
 - Required: configurationType, parameters[model_id]
 
@@ -129,7 +135,9 @@ Response:
   ]
   }]}
 
-**Request CIM Feeder Index file** - Generates a list of the feeders available powergrid model data store
+Request CIM Feeder Index file
+^^^^^^^
+Generates a list of the feeders available powergrid model data store
 
 - Required: configurationType, parameters[model_id]
 
@@ -148,7 +156,9 @@ Response:
   .......
   ]}
 
-**Request Simulation Output Configuration file** - Generates file containing objects and properties with measurements avilable in the selected model
+Request Simulation Output Configuration file
+^^^^^^^
+Generates file containing objects and properties with measurements avilable in the selected model
 
 - Required: configurationType, parameters[model_id]
 
