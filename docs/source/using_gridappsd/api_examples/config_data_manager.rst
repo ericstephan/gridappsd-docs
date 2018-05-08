@@ -63,8 +63,8 @@ Response:
 **Request GridLAB-D symbols file** - Generates the symbols file with XY coordinates used by the GridLAB-D simulator
 
 - Required: configurationType, parameters[model_id]
-- Request:  goss.gridappsd.process.request.config
 
+Request:  goss.gridappsd.process.request.config
 ::
   {
     "configurationType": "GridLAB-D Symbols",
@@ -87,8 +87,8 @@ Response:
 **Request CIM Dictionary file** - Generates a dictionary file which maps between the mrid identifiers used by the CIM model and the other names of model objects used by simulators.
 
 - Required: configurationType, parameters[model_id]
-- Request: goss.gridappsd.process.request.config
 
+Request: goss.gridappsd.process.request.config
 ::
   {
     "configurationType":"CIM Dictionary",
@@ -133,8 +133,8 @@ Response:
 **Request CIM Feeder Index file** - Generates a list of the feeders available powergrid model data store
 
 - Required: configurationType, parameters[model_id]
-- Request: goss.gridappsd.process.request.config
 
+Request: goss.gridappsd.process.request.config
 ::
   {
     "configurationType":"CIM Feeder Index",
@@ -152,7 +152,8 @@ Response:
 **Request Simulation Output Configuration file** - Generates file containing objects and properties with measurements avilable in the selected model
 
 - Required: configurationType, parameters[model_id]
-- Request: goss.gridappsd.process.request.config
+
+Request: goss.gridappsd.process.request.config
 ::
   {
     "configurationType":"CIM Feeder Index",
