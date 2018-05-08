@@ -1,8 +1,7 @@
 
-
-
-
-**Request all GridLAB-D configuration files** - Generates all configuration files necessary to run a sumulation using the GridLAB-D simulator.  Returns the diretory where all of the configuration files are stored.
+Request all GridLAB-D configuration files
+^^^^^^^
+Generates all configuration files necessary to run a sumulation using the GridLAB-D simulator.  Returns the diretory where all of the configuration files are stored.
 
 - Required: configurationType, parameters[model_id,directory,simulationname,simulation_start_time,simulation_duration,simulation_id,simulation_broker_host,simulation_broker_port]
 - Optional: parameters[i_fraction, p_fraction, z_fraction, load_scaling_factor, schedule_name,solver_method]
