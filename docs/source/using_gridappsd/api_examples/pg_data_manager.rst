@@ -3,7 +3,9 @@ The Powergrid Model Data Manager API allows you to query the powergrid model dat
 Query Model Names
 ^^^^^^^
 
-Returns list of names for all available models.  Allowed parameter is:
+Returns list of names for all available models.  
+
+Allowed parameter is:
 
 - Result Format – XML/JSON/CSV, Will return results as a list in the format selected.
 
