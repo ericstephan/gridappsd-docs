@@ -199,4 +199,20 @@ Response:
     ],.......
 
 
+Request YBus Export Configuration file
+^^^^^^^
+Generates file containing ybus configuration for the selected simulation.  Simulation must be running.
+
+- Required: configurationType, parameters[simulation_id]
+
+Request: goss.gridappsd.process.request.config
+::
+  {
+    "configurationType":"YBus Export",
+    "parameters":{"simulation_id":"12345"}
+    }
+
+Response:
+::
+  TODO
 
