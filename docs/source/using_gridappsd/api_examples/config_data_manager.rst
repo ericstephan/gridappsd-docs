@@ -214,5 +214,10 @@ Request: goss.gridappsd.process.request.config
 
 Response:
 ::
-  TODO
+  {
+    yParseFilePath":"/tmp/gridappsd_tmp/1129698954/base_ysparse.csv",
+    "nodeListFilePath":"/tmp/gridappsd_tmp/1129698954/base_nodelist.csv",
+    "summaryFilePath":"/tmp/gridappsd_tmp/1129698954/base_summary.csv"
+  }
+
 
