@@ -1,5 +1,41 @@
 The Powergrid Model Data Manager API allows you to query the powergrid model data store.  Six actions are available: Query_Model_names, Query, Query_Object, Query_Object_Types, Query_Model, and Put_Model
 
+
+
+
+Query Model Info
+^^^^^^^
+
+Returns list of names/ids for models, substations, subregions, and regions for all available feeders.  
+
+Allowed parameter is:
+
+- Result Format – XML/JSON/CSV, Will return results as a list in the format selected.
+
+Example Request:
+::
+	{
+		"requestType": "QUERY_MODEL_INFO",
+		"resultFormat": "JSON"
+	}
+
+Example Response for result format JSON:
+::
+	{
+		"models": [{
+			"modelName": "ieee123",
+			"modelId": "_C1C3E687-6FFD-C753-582B-632A27E28507",
+			"stationName": "ieee123_Substation",
+			"stationId": "_FE44B314-385E-C2BF-3983-3A10C6060022",
+			"subRegionName": "large",
+			"subRegionId": "_1CD7D2EE-3C91-3248-5662-A43EFEFAC224",
+			"regionName": "ieee",
+			"regionId": "_24809814-4EC6-29D2-B509-7F8BFB646437"
+	}, .......
+
+
+
+
 Query Model Names
 ^^^^^^^
 
