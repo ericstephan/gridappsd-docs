@@ -4,33 +4,32 @@
 Using GridAPPS-D
 ================
 
-Overview
---------
-
 .. include:: rc1_overview.rst
 
-Run Configuration
------------------
+Using Platform API
+------------------
 
-.. include:: run_configuration.rst
+Applications and services can use either publish/subscribe mechanism or Python API to interact with GridAPPS-D platform.
 
-Starting Simulation Using API
------------------------------
+Publish/Subscribe mechanism can be implemented using any of the language bindings for ActiveMQ messaging framework.
 
-GridAPPS-D communicates over a publish subscribe architecture implemented in ActiveMQ.  A number of communication protocols are supported, including Openwire, STOMP, and websockets.  Many programming languages support communication over these protocols, below are three examples.
+Python API wraps the publish/subscribe messaging and makes the interaction easier for Python apps/services. 
+For more information on Python API and how to use it, look at  https://github.com/GRIDAPPSD/gridappsd-python and 
+https://github.com/GRIDAPPSD/gridappsd-sample-app. 
 
-.. include:: api_examples/starting_in_java.rst
-.. include:: api_examples/starting_in_websockets.rst
-.. include:: api_examples/starting_in_python.rst
+Following sections describe the messaging APIs and the corresponding Python API function to interact with platform. 
+Where no Python API function is mentioned, following generic functions can be used.
 
-Starting Simulation Using Viz Application
------------------------------------------
-
-.. include:: starting_in_viz.rst
+::
 
 
-Query for Powergrid Model information
------------------------------
+	send(self, topic, message)
+	get_response(self, topic, message, timeout=5)
+	subscribe(self, topic, callback, id=None)
+
+
+Powergrid Model API
+-------------------
 .. include:: api_examples/pg_data_manager.rst
 
 Configuration File API
@@ -38,7 +37,17 @@ Configuration File API
 .. include:: api_examples/config_data_manager.rst
 
 
-Logging messages and process status
------------------------------------
+Logging API
+-----------
 
 .. include:: logging_status.rst
+
+Simulation API
+--------------
+
+.. include:: api_examples/simulation_request.rst
+
+Hosting Application or Service
+------------------------------
+
+.. include:: Developing_Apps.rst

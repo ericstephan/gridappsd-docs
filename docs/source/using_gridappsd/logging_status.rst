@@ -13,7 +13,7 @@ Log message with process status should be published on the following topic. Proc
 	goss.gridappsd.service.log.[service_id]
 	goss.gridappsd.application.log.[app_id]
 	goss.gridappsd.test.log.[test_id]
-
+	
 Message structure:
 ^^^^^^^^^^^^^^^^^^
 
@@ -23,16 +23,16 @@ Message structure:
 		"source": "",
 		"processId": "",
 		"timestamp": "",
-		"process_status": "[started|stopped|running|error|passed|failed]",
-		"log_message": "",
-		"log_level": "[info|debug|error]",
-		"store_to_db": [true|false]
+		"processStatus": "[STARTED|STOPPED|RUNNING|ERROR|PASSED|FAILED]",
+		"logMessage": "",
+		"logLevel": "[INFO|DEBUG|ERROR]",
+		"storeToDb": [true|false]
 	}
-
-Receving multiple logs:
+	
+Receiving multiple logs:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-User can either receive individual process's log by subcribing to topics mentioned above or recevie all logs of a type by subcribing to following topics.
+User can either subscribe to individual process's log by subscribing to topics mentioned above or receive all logs of a type by subscribing to following topics.
 
 .. code-block:: console
 

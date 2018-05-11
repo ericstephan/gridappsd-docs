@@ -1,8 +1,15 @@
+Start a Simulation
+^^^^^^^^^^^^^^^^^^
 
-In order to start a simulation, you must send a simulation request to the process manager. The Process manager listens to topic **goss/gridappsd/process/request/simulation** and returns a simluationId.  The simulation request should look like the example below. It should incluse a power system config section, which specifies which model to run.  A simulation config, which includes parameters for the simulation, such as the simulator or power flow solver method.  Within the power system config is the power system output, this specifies which objects and properties should be returned by the simulation, these should match the objects in the chosen model.  
+Returns simulation id.   
 
-Once started, the ongoing process status messages will be sent on **goss/gridappsd/simulation/status/<Simulation_ID>**
+Queue:
 
+::
+
+	goss.gridappsd.process.request.simulation
+	
+Example Request:
 
 {
 
@@ -71,4 +78,108 @@ Once started, the ongoing process status messages will be sent on **goss/gridapp
 		}]
 	}
 }
+
+Subscribe to Simulation Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Topic:
+	
+::
+
+	/topic/goss.gridappsd.simulation.output.[simulation_id]
+	
+Where simulation_id is response from start simulation API.
+
+Example Message:
+
+::
+	
+	{
+		"simulation_id" : "12ae2345",
+	    "message" : {
+	    	"timestamp" : "YYYY-MM-DDThh:mm:ss.sssZ",
+	        "measurement" : {
+	        	"measurement_mrid" : "123a456b-789c-012d-345e-678f901a234b"
+	            "magnitude" : 3410.456,
+	            "angle" : -123.456
+	        }
+	    }
+	}
+	
+Subscribe to Simulation Logs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Topic:
+	
+::
+
+	/topic/goss.gridappsd.simulation.log.[simulation_id]
+	
+Where simulation_id is response from start simulation API.
+
+Example Message:
+
+::
+	
+	{
+		"source": "",
+		"processId": "",
+		"timestamp": "",
+		"processStatus": "[STARTED|STOPPED|RUNNING|ERROR|PASSED|FAILED]",
+		"logMessage": "",
+		"logLevel": "[INFO|DEBUG|ERROR]",
+		"storeToDb": [true|false]
+	}
+	
+Send Input to Simulation
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Topic:
+	
+::
+
+	/topic/goss.gridappsd.fncs.input
+
+Example Message:
+
+::
+	
+	{
+		"simulation_id" : "12ae2345",
+	    "message" : {
+	    	"timestamp" : "2018-01-08T13:27:00.000Z",
+	       	"difference_mrid" : "123a456b-789c-012d-345e-678f901a235c"
+	        "reverse_differences" : [
+				{
+					"object" : "61A547FB-9F68-5635-BB4C-F7F537FD824E",
+	           		"attribute" : "ShuntCompensator.sections",
+	           		"value" : "1"
+	        	},
+				{
+					"object" : "E3CA4CD4-B0D4-9A83-3E2F-18AC5F1B55BA",
+	           		"attribute" : "ShuntCompensator.sections",
+	           		"value" : "0"
+	        	}
+			]
+	        "forward_differences" : [
+				{
+					"object" : "61A547FB-9F68-5635-BB4C-F7F537FD824E",
+	           		"attribute" : "ShuntCompensator.sections",
+	           		"value" : "0"
+	        	},
+				{
+					"object" : "E3CA4CD4-B0D4-9A83-3E2F-18AC5F1B55BA",
+	           		"attribute" : "ShuntCompensator.sections",
+	           		"value" : "1"
+	        	}
+			]
+	    	}
+		}
+	}
+
+	
+
+
+
+
 
