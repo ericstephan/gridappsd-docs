@@ -1,8 +1,5 @@
 The Powergrid Model Data Manager API allows you to query the powergrid model data store.  Six actions are available: Query_Model_names, Query, Query_Object, Query_Object_Types, Query_Model, and Put_Model
 
-
-
-
 Query Model Info
 ^^^^^^^
 
@@ -34,8 +31,6 @@ Example Response for result format JSON:
 	}, .......
 
 
-
-
 Query Model Names
 ^^^^^^^
 
@@ -62,8 +57,10 @@ Example Response for result format JSON:
 		"_9CE150A8-8CC5-A0F9-B67E-BBD8C79D3095",
 		"_C1C3E687-6FFD-C753-582B-632A27E28507"]
 	}
-
-
+	
+Python API function:
+::
+	query_model_names(self, model_id=None)
 
 
 Query
@@ -101,6 +98,10 @@ Example Response:
     		  ]
   	}
 	}
+	
+Python API function:
+::
+	query_data(self, query, database_type=POWERGRID_MODEL, timeout=30) 
 
 
 Query Object
@@ -153,6 +154,11 @@ Example Response:
 	  }
 	}
 	
+Python API function:
+::
+	query_object(self, object_id, model_id=None): 
+
+
 Query Object Types
 ^^^^^^^
 Returns the available object types in the model
@@ -183,6 +189,12 @@ Example Response:
 		"http://iec.ch/TC57/2012/CIM-schema-cim17#LoadBreakSwitch",
 		"http://iec.ch/TC57/2012/CIM-schema-cim17#EnergyConsumer"]
 	}
+
+
+Python API function:
+::
+	query_object_types(self, model_id=None) 
+
 
 Query Model
 ^^^^^^^
@@ -297,7 +309,9 @@ Example Response:
 	
 Put Model
 ^^^^^^^
-*Not yet available* Inserts a new model into the model repository.  (Future) This could validate model format during insertion  **Keep cim/model version in mind
+.. note:: Future Capability. Not yet available.
+
+Inserts a new model into the model repository. This could validate model format during insertion  **Keep cim/model version in mind
 
 Allowed parameters are:
 

@@ -1,13 +1,10 @@
 .. GridAPPS-D
 
-
+==========================
 GridAPPS-D's Documentation
 ==========================
 
-**TODO**
-	Briefly introduce goss-gridapps-d including the simplest path to install and requirements
-	Link to other sections for detailed installation and quickstart.
-
+.. image:: GridAPPS-D_Logo.png
 
 .. toctree::
    :maxdepth: 2
@@ -29,3 +26,6 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. |GridAPPS-D Logo| image:: GridAPPS-D_Logo.png
+	:scale: 50 %
