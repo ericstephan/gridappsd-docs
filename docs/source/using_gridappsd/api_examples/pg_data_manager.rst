@@ -45,7 +45,7 @@ Allowed parameter is:
 
 - Result Format – XML/JSON/CSV, Will return results as a list in the format selected.
 
-Example Request:
+Example Request:    goss.gridappsd.process.request.data.powergridmodel
 ::
 	{
 		"requestType": "QUERY_MODEL_NAMES",
@@ -76,7 +76,7 @@ Allowed parameters are:
 - queryString  - SPARQL query, for more information see https://www.w3.org/TR/rdf-sparql-query/   See below for example.
 - resultFormat – XML/JSON ,   The format you wish the result to be returned in.  Can be either JSON or XML.  Will return result bindings based on the select part of the query string.  See below for example.
 
-Example Request:
+Example Request:  goss.gridappsd.process.request.data.powergridmodel
 ::
 	{
 		"requestType": "QUERY",
@@ -113,7 +113,7 @@ Allowed parameters are:
 - objectID – mrid of the object you wish to return details for.
 - resultFormat – XML/JSON ,  Will return result bindings based on the select part of the query string.
 
-Example Request:
+Example Request:  goss.gridappsd.process.request.data.powergridmodel
 ::
 	{
 		"requestType": "QUERY_OBJECT",
@@ -162,7 +162,7 @@ Allowed parameters are:
 - modelId (optional) - when specified it searches against that model, if empty it will search against all models
 - resultFormat – XML/JSON /CSV,  Will return results as a list in the format selected.
 
-Example Request:
+Example Request:   goss.gridappsd.process.request.data.powergridmodel
 ::
 	{
 		"requestType": "QUERY_OBJECT_TYPES",
@@ -191,11 +191,11 @@ Returns all or part of the specified model.  Can be filtered by object type
 Allowed parameters are:
 
 - modelId - when specified it searches against that model, if empty it will search against all models
-- objectType
+- objectType (optional) – type of objects you wish to return details for.
 - filter – SPARQL formatted filter string
 - resultFormat – XML/JSON,  Will return result in the format selected.
 
-Example Request:
+Example Request:   goss.gridappsd.process.request.data.powergridmodel
 ::
 	{
 		"requestType": "QUERY_MODEL",
@@ -215,7 +215,86 @@ Example Response:
 		"http://iec.ch/TC57/2012/CIM-schema-cim17#IdentifiedObject.name": "q14733",
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#type": "http://iec.ch/TC57/2012/CIM-schema-cim17#ConnectivityNode"
 	}]
+	
+	
+Query Object Ids
+^^^^^^^
+*Not yet available* Returns details for a particular object based on the object Id.
 
+Allowed parameters are:
+
+- modelId (optional) - when specified it searches against that model, if empty it will search against all models
+- objectType (optional) – type of objects you wish to return details for.
+- resultFormat – XML/JSON/CSV ,  Will return result bindings based on the select part of the query string.
+
+Example Request:   goss.gridappsd.process.request.data.powergridmodel
+::
+	{
+		"requestType": "QUERY_OBJECT_IDS",
+		"resultFormat": "JSON",
+		"objectType": "......."
+	}
+	
+Example Response:
+::	
+		{
+		"objectIDs": ["_49AD8E07-3BF9-A4E2-CB8F-C3722F837B62",
+		"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
+		"_5B816B93-7A5F-B64C-8460-47C17D6E4B0F",
+		"_67AB291F-DCCD-31B7-B499-338206B9828F",
+		"_9CE150A8-8CC5-A0F9-B67E-BBD8C79D3095",
+		"_C1C3E687-6FFD-C753-582B-632A27E28507"]
+	}
+	
+
+Query Object Dictionary By Type
+^^^^^^^
+*Not yet available* Returns details for either all objects of a particular type or a particular object based on the object Id in the same format as the model dictionary file.
+
+Allowed parameters are:
+
+- objectType – type of objects you wish to return details for.
+- modelId (optional) - when specified it searches against that model, if empty it will search against all models
+- objectID (optional) - mrid of the object you wish to return details for.
+- resultFormat – XML/JSON ,  Will return result bindings based on the select part of the query string.
+
+Example Request:   goss.gridappsd.process.request.data.powergridmodel
+::
+	{
+		"requestType": "QUERY_OBJECT_IDS",
+		"resultFormat": "JSON",
+		"objectType": "Capacitor.  TODO what is cim type name......"
+	}
+	
+Example Response:
+::	
+	{
+		"name": "c83",
+		"mRID": "_8B8DB36D-CF7F-8C11-6C9C-E24B59C02366",
+		"CN1": "83",
+		"phases": "ABC",
+		"kvar_A": 200.0,
+		"kvar_B": 200.0,
+		"kvar_C": 200.0,
+		"nominalVoltage": 4160.0,
+		"nomU": 4160.0,
+		"phaseConnection": "Y",
+		"grounded": true,
+		"enabled": false,
+		"mode": null,
+		"targetValue": 0.0,
+		"targetDeadband": 0.0,
+		"aVRDelay": 0.0,
+		"monitoredName": null,
+		"monitoredClass": null,
+		"monitoredBus": null,
+		"monitoredPhase": null
+	},....	
+	
+	
+	
+	
+	
 Put Model
 ^^^^^^^
 *Not yet available* Inserts a new model into the model repository.  (Future) This could validate model format during insertion  **Keep cim/model version in mind
