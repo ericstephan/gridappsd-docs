@@ -7,7 +7,7 @@ Go to http://localhost:8889/bigdata for the Blazegraph Workbench. Go to the Upda
     :figclass: align-left
 
 
-Once the model is uploaded to Blazegraph, the new model will be shown in the Simulation Configuration Form in the visualization under the line name dropdown. 
+Once the model is uploaded to Blazegraph, the new model will be shown in the Simulation Configuration Form in the visualization under the line name dropdown. If the Viz app was already open, you will need to restart the browser to see the new model(This is due to caching).
 
 .. figure:: BlazegraphModelInViz.JPG
     :align: center
