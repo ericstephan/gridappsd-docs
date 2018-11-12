@@ -70,7 +70,7 @@ Query Simulation Data
 
 Returns simulation input or output data based on query filters/
 
-Example Request:    goss.gridappsd.process.request.data.powergridmodel
+Example Request:
 ::
 	{"queryMeasurement": "PROVEN_MEASUREMENT",
  	 "queryFilter": {"hasSimulationId": "751004304"},
