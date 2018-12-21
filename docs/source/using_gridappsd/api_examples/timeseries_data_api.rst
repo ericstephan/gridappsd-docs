@@ -11,6 +11,7 @@ By default GridAPPS-D comes with weather data for the year 2013.
 
 Example Request:
 ::
+
 	{"queryMeasurement":"weather", 
 	"queryFilter":{"startTime":"1357048800000000",
 				"endTime":"1357048860000000"},
@@ -18,6 +19,7 @@ Example Request:
 
 Example Response for result format JSON:
 ::
+
 	{ "data": { "measurements": [ { "name": "weather",
 	  "points": [ { "row": { "entry": [ 
 		 			{ "key": "Diffuse","value": "-0.006386875" }, 
@@ -51,6 +53,7 @@ Example Response for result format JSON:
 
 Allowed values for queryFilter are:
 ::
+
 	startTime[epoch number]
 	endTime[epoch number]
 	AvgWindDirection[number]
@@ -72,6 +75,7 @@ Returns simulation input or output data based on query filters/
 
 Example Request:
 ::
+
 	{"queryMeasurement": "PROVEN_MEASUREMENT",
  	 "queryFilter": {"hasSimulationId": "751004304"},
   	"responseFormat": "JSON"}
@@ -79,6 +83,7 @@ Example Request:
 
 Example Response for result format JSON:
 ::
+
 	{ "data": { "measurements": [ { "name": "PROVEN_MEASUREMENT", 
 	"points": [ { "row": { "entry": [ 
 				{ "key": "hasAngle", "value": "118.82725524902344" },
@@ -104,6 +109,7 @@ Example Response for result format JSON:
 	
 Allowed values for qwueryFilter are:
 ::
+
 	Both input and output message type:
 	startTime [number] 
 	endTime [number]
