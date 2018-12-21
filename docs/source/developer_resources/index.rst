@@ -28,7 +28,7 @@ Messaging
 
 CIM Documentation
 -----------------
-.. include:: CDPSM_RC1.rst
+.. include:: CDPSM.rst
 
 Platform UML Diagrams
 ---------------------
