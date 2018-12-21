@@ -88,7 +88,8 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['installing_gridappsd/bootstrap.rst',
+exclude_patterns = ['api_docs/gridlabd-cim.rst',
+                    'installing_gridappsd/bootstrap.rst',
                     'installing_gridappsd/activate.rst',
                     'installing_gridappsd/download.rst',
                     'installing_gridappsd/prereq.rst',
@@ -96,6 +97,7 @@ exclude_patterns = ['installing_gridappsd/bootstrap.rst',
                     'installing_gridappsd/testing.rst',
                     'installing_gridappsd/FNCS_build_instructions.md',
                     'installing_gridappsd/GridLAB-D_build_instructions.md',
+                    'developer_resources/design.rst',
                     'developer_resources/CDPSM.rst',
                     'developer_resources/Developing_Apps.rst',
                     'developer_resources/Eclipse_Setup.rst',
@@ -104,20 +106,25 @@ exclude_patterns = ['installing_gridappsd/bootstrap.rst',
                     'developer_resources/UML_Diagrams.rst',
                     'hosted_applications/NREL_APPS/*.rst',
                     'hosted_applications/PNNL_Apps/*.rst',
+                    'installing_gridappsd/installingWithDocker.rst',
                     'overview/architecture.rst',
                     'overview/conceptual_design_summary.rst',
                     'overview/contactus.rst',
                     'overview/definitions.rst',
                     'overview/version_history.rst',
+                    'using_gridappsd/Developing_Apps.rst',
                     'using_gridappsd/logging_status.rst',
                     'using_gridappsd/rc1_overview.rst',
                     'using_gridappsd/run_configuration.rst',
                     'using_gridappsd/starting_in_viz.rst',
+                    'using_gridappsd/api_examples/config_data_manager.rst',
                     'using_gridappsd/api_examples/inputs_outputs.rst',
+                    'using_gridappsd/api_examples/pg_data_manager.rst',
                     'using_gridappsd/api_examples/simulation_request.rst',
                     'using_gridappsd/api_examples/starting_in_java.rst',
                     'using_gridappsd/api_examples/starting_in_python.rst',
-                    'using_gridappsd/api_examples/starting_in_websockets.rst']
+                    'using_gridappsd/api_examples/starting_in_websockets.rst',
+                    'using_gridappsd/api_examples/timeseries_data_api.rst']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'

@@ -114,12 +114,14 @@ PhaseImpedanceData instances that define the lower triangle of the Z and Y
 matrices per unit length.  The row and column attributes must agree with 
 ACLineSegmentPhase:sequenceNumber.  The fourth way to specify impedance is 
 by wire/cable and spacing data, by association to WireSpacingInfo and 
-WireInfo.  If there are ACLineSegmentPhase instances reverse-associated to 
-the ACLineSegment, then per-phase modeling applies.  There are several use 
-cases for ACLineSegmentPhase: 1) single-phase or two-phase primary, 2) 
-low-voltage secondary using phases s1 and s2, 3) associated WireInfo data 
-where the WireSpacingInfo association exists, 4) assign specific phases to 
-the matrix rows and columns in PerLengthPhaseImpedance.  It is the 
+WireInfo.  (Note: each association is actually referenced as 
+PowerSystemResource.AssetDataSheet, as illustrated in Figure 8.) If there 
+are ACLineSegmentPhase instances reverse-associated to the ACLineSegment, 
+then per-phase modeling applies.  There are several use cases for 
+ACLineSegmentPhase: 1) single-phase or two-phase primary, 2) low-voltage 
+secondary using phases s1 and s2, 3) associated WireInfo data where the 
+WireSpacingInfo association exists, 4) assign specific phases to the 
+matrix rows and columns in PerLengthPhaseImpedance.  It is the 
 application’s responsibility to propagate phasing through terminals to 
 other components, and to identify any miswiring.  (Note: this profile does 
 not use WireAssemblyInfo, nor the fromPhase and toPhase attributes of 
@@ -268,23 +270,84 @@ These should be represented as SvPowerFlow values at the solved SvVoltage.
  
 |imgmeas|
 
-Figure 12: Measurements
+Figure 12: Measurements are defined in the Meas package.  They differ from 
+the state variables package, in that the values are measured here and not 
+calculated or estimated.  Each Measurement is associated to a 
+PowerSystemResource, and in GridAPPS-D for now, also a Terminal that 
+belongs to the same PowerSystemResource.  (Non-electrical measurements, 
+for example weather, would not have the Terminal).  The measurementType is 
+a string code from IEC 61850, with PNV, VA, A and POS currently supported.  
+The Measurement has a name, mRID, and phases.  In GridAPPS-D, each phase 
+is measured individually so multi-phase codes like ABC should not be used.  
+Pos measurements will be Discrete, for such things as tap position, switch 
+position, or capacitor bank position.  The others will be Analog, with 
+magnitude and optional angle in degrees.  Each MeasurementValue will have 
+a timeStamp and mRID inherited from IdentifiedObject, so the values can be 
+traced.  (Note: IOPoint is a placeholder class with no attributes, 
+inherting from IdentifiedObject.  Further, it's acceptable to supply an 
+empty or short non-unique name for each MeasurementValue.) 
  
 |imginverters|
 
-Figure 13: Power Electronics.
+Figure 13: Power Electronics attributes are the minimum needed to support 
+a time series power flow solution.  For simple short-circuit calculations, 
+maxIFault is provided as the inverter fault contribution in per-unit of 
+rated current.  When PowerElectronicsConnectionPhase is not present, the 
+inverter is assumed to be balanced three-phase.  The type of associated 
+PowerElectronicsUnit determines whether the inverter is for solar or 
+storage (wind is not currently used in GridAPPS-D).  If the inverter 
+employs a SmartInverterMode of voltVar, voltWatt or loadFollowing (storage 
+only), then a Terminal should be associated through RegulatingControl, 
+especially for loadFollowing.  If the inverter will regulate its own 
+Terminal, then the explicit Terminal association may not be needed.  
+However, there are more attributes needed in CIM to define smart inverter 
+functions.  This might be done in harmonization with IEC 61850, which does 
+define smart inverter function parameters.  The existing CIM 
+RegulatingControl attributes are probably not applicable, so they have 
+been hidden in Figure 13.  
 
 |imgmachines|
 
-Figure 14: Rotating Machines.
+Figure 14: Rotating Machines are three-phase balanced, either synchronous 
+or asynchronous.  The SynchronousMachine ikk attribute and most of the 
+AsynchronousMachine attributes are provided to support short-circuit 
+calculations according to IEC 60909.  The GeneratingUnit class is needed 
+to define minimum and maximum power limits.  In the full CIM, 
+GeneratingUnit is an abstract class with descendants HydroUnit, 
+ThermalUnit and NuclearUnit, but in GridAPPS-D we don't currently 
+distinguish between those types.  If the SynchronousMachine regulates 
+voltage, then the RegulatingControl (with attribute values) and Terminal 
+associations need to be provided.  
 
 |imghouses|
 
-Figure 15: Houses.
+Figure 15: Houses are used to create 2nd-order thermal models of the 
+building envelope, with internal ThermostatController and heating/cooling 
+systems.  The purpose is to introduce realistic load stochastic behaviors 
+that are independent from and faster-moving than data typically available 
+to an electric utility.  To enable repeatable simulations, the House data 
+structures have been defined here as a CIM extension.  The House must be 
+attached to one EnergyConsumer that incorporates other end-use loads, and 
+connects to the distribution system.  The House attributes are the minimum 
+necessary to define a GridLAB-D house model, and during simulation, the 
+house heating/cooling system will add to the ServicePanel loads.  
+Therefore, the application should reduce the nominal value of 
+EnergyConsumer.p in order to "make room" for the heating/cooling load that 
+will switch on and off, responding to the ThermostatController and the 
+weather.  The ThermostatController contains the minimum attributes needed 
+for PNNL's double-ramp, double-auction market mechanism.  In the future, 
+this will be harmonized with CIM market structures in the 62235 package.  
 
 |imgfaults|
  
-Figure 16: Faults.
+Figure 16: Faults include open conductors and short circuits (optionally 
+including ground) on any combination of phases.  In GridAPPS-D, every 
+Fault will be an EquipmentFault associated to a Terminal (i.e., we are not 
+using LineFault, which requires a lengthFromTerminal1 attribute).  The 
+occurredDateTime supports the scripting of fault sequences.  The 
+stopDateTime is optional.  If provided, it will be the time at which a 
+sustained fault has been repaired.  If not provided, then the fault is 
+temporary and will clear itself as soon as it's been deenergized.  
 
 Typical Queries
 ^^^^^^^^^^^^^^^
@@ -797,19 +860,29 @@ this value applies to all phases.
 Metering Relationship to Loads in the CIM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These UML class relationships in Figure 33 through Figure 35 have not
-been planned for implementation in RC1, but in a future version of
-GridAPPS-D, they can be used to link automated meter readings with loads
-in the distribution system model.
+Figure 38 shows how emulated trouble calls will be connected to loads 
+(EnergyConsumers) for test scenarios.  The TroubleTicket is associated 
+with Customer, CustomerAgreement and UsagePoint, which can then be 
+associated to Equipment or any of its descendants.  Figure 38 shows the 
+linkage to EnergyConsumer or EnergySource, but it can also be linked to 
+RegulatingCondEq (e.g., rotating machine and inverter-based DER).  There 
+are many attributes of Customer, CustomerAgreement and UsagePoint that are 
+not yet used in GridAPPS-D, and not shown in Figure 39.  These would be 
+important for future metering and customer management applications.  For 
+now, the only TroubleTicket attributes to be used are dateTimeOfReport, 
+resolvedDateTime and troubleKind.  The PNNLTroubleCallKind was added 
+because the existing troubleCode attribute is a non-standardized String.  
+However, the comment attribute could be used for optional comments on 
+each TroubleTicket.  
 
 |imgcim33|
 
-Figure 39: Trouble Calls route through Metering Usage Points to EnergyConsumers
+Figure 38: Trouble Calls route through Metering Usage Points to EnergyConsumers
 
 CIM Enhancements for RC4
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Possible CIM enhancements to support volt-var feeder modeling:
+Possible CIM enhancements: 
 
 1. Different on and off delay parameters for RegulatingControl (Figure
    5)
@@ -825,6 +898,10 @@ Possible CIM enhancements to support volt-var feeder modeling:
 5. Clock angles for TransformerTankEnd (i.e. move phaseAngleClock from
    PowerTransformerEnd to TransformerEnd (Figure 6)
 
+6. Add the Fault.stopDateTime attribute
+
+7. Single-phase asynchronous and synchronous machines.
+
 CIM Profile in CIMTool
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -834,9 +911,9 @@ CIMTool was used to develop and test the profile for RC1, because it:
 
 2. Validates instance files against the profile
 
-The CIMTool developer will not be able to support the tool in future, so
-eventually we will use the new Schema Composer feature in Enterprise
-Architect.
+The CIMTool developer will not be able to support the tool in future, so 
+we may use the new Schema Composer feature in Enterprise Architect when 
+it's ready for CIM profiling.  
 
 In order to view the profile, import the archived Eclipse project
 *OSPRREYS\_CIMTOOL.zip* into CIMTool. Please see the CIM tutorial slides
@@ -849,7 +926,7 @@ OpenDSS:
 
 1. **~/src/opendss/Test/IEEE13\_CDPSM.dss** is the IEEE 13-bus test
    feeder with per-length phase impedance matrices and a delta tertiary
-   added to the substation transformer.
+   added to the substation transformer. PV and storage were also added.
 
 2. **~/src/opendss/Test/IEEE13\_Assets.dss** is the IEEE 13-bus test
    feeder with catalog data for overhead lines, cables and transformers.
@@ -874,7 +951,7 @@ cases, CIMTool reports only two kinds of validation error:
 2. **Minimum cardinality**: For TapChangerControl instances, the
    inherited RegulatingControl.RegulatingCondEq association is not
    specified. This is not really an error, as the association is only
-   needed for shunt capacitor controls. Figure 36 shows that
+   needed for shunt capacitor controls. Figure 39 shows that
    RegulatingCondEq was not selected for TapChangerControl in the
    profile, so this may reflect a defect in the validation code. Efforts
    to circumvent it were not successful.
@@ -882,10 +959,14 @@ cases, CIMTool reports only two kinds of validation error:
 With these caveats, the profile and instances validate against each
 other, for feeder models that solve in OpenDSS.
 
+|imgcimtool|
+
+Figure 39: Editing a Profile in CIMTool
+
 Legacy Data Definition Language (DDL) for MySQL
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As shown at the top of Figure 36, CIMTool builds *RC1.sql* to create
+As shown at the top of Figure 39, CIMTool builds *RC1.sql* to create
 tables in a relational database, but the syntax doesn’t match that
 required for MySQL. The following manual edits were made:
 
@@ -1023,7 +1104,7 @@ required for MySQL. The following manual edits were made:
 .. |imgcim30| image:: CDPSM/media/cim_TapValues.png
 .. |imgcim31| image:: CDPSM/media/cim_CapacitorValues.png
 .. |imgcim33| image:: CDPSM/media/ext_TroubleCalls.png
-.. |imgcim35| image:: CDPSM/media/cim_CIMTool.png
+.. |imgcimtool| image:: CDPSM/media/cim_CIMTool.png
 .. |imgfaults| image:: CDPSM/media/cim_Faults.png
 .. |imginverters| image:: CDPSM/media/cim_PowerElectronics.png
 .. |imgmachines| image:: CDPSM/media/cim_DERMachines.png
