@@ -1,10 +1,11 @@
 .. _version_history:
 
 
-Version History
+Release History
 ---------------
 
-Version Name: Release Cycle 1 (RC1)
+Version: Release Cycle 1 (RC1)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Release Date: May 2017
 
@@ -30,3 +31,133 @@ Functional requirements covered in this release:
 * 406 Power System Model Manager (partial)
 
 * 413 Platform Manager (encapsulating 401 and 403-406)
+
+
+Version: 2019.01.0
+^^^^^^^^^^^^^^^^^^
+
+Release Date: January 2019
+
+GridAPPS-D v2019.01.0 release contains following features/updates:
+
+1. **Platform updates:**
+
+    - Simulation can run as fast as possible as well as real-time (every 3 seconds)
+    - Simulation can run with houses if present in the model.
+    - Following components can be controlled while the simulation is running:
+        - Open or close capacitors
+        - Open or close switches
+        - Change tap setting for regulators
+        - Changing control modes for regulators
+        - Change inverter P & Q output
+        - Set control modes for regulators and capacitors
+    - Simulation request creates the input weather file. 
+    - gridappsd-python: 
+        - (@Craig: list out updates here)
+    - cim2glm:
+        - (@Tom list out updates here)
+         
+          
+2. **Data updates:**
+
+       2.1 Power grid models:
+       
+         - Power grid models are stored in blazegraph database in its own docker container.
+         - Following models are pre-loaded 
+            - EPRI_DPV_J1
+            - IEEE123
+            - IEEE13
+            - R2_12_47_2
+            - IEEE8500
+            - IEEE123_pv
+         - User can upload customized model (@Tara: attach readthedocs link)
+             
+       2.2    Weather:
+       
+         - Weather data in stored in InfluxDB using Proven.
+         - InfluxDB has its own docker container with pre-loaded weather data.
+         - API added to query weather data. 
+         - Feature added to create weather file for a simulation 
+         - Details of pre-loaded weather data in current release: (@Eric: meta-data details please)
+                           
+       2.3 Simulation Input
+       
+         - Simulation input commands sent by applications/services are stored in InfluxDB using Proven.
+         - API added to query input data.
+             
+       2.4 Simulation Output
+       
+         - Output from simulator is stored in InfluxDB using Proven.
+         - API added to query output data.
+             
+       2.5 Logs 
+       
+         - API added for query based on pre-defined filters or custom SQL string. 
+         - Changed logs to have epoch time format. 
+
+                  
+3. **Applications and Services:**
+
+    3.1 Viz
+    
+		- User can select to run simulation at real-time or as fast as possible
+		- User can select to add houses in the simulation
+		- User can open or close switches and capacitors by clocking on them
+		- Cleaner display of log messages while simulation is running
+		- User can query simulation logs after simulation is done.
+		- Toggle switches open/close 
+		- Querying logs through Viz (still working on this)
+		- Bug fixes
+             - fixed the stomp client in Viz, 
+             - added missing capacitor labels
+             - redirect non-root urls to root (localhost:8080)
+             
+	3.2 Sample application: (@Craig/Andy: please review/add)
+	
+		- Source code at https://github.com/GRIDAPPSD/gridappsd-sample-app
+		- Sample app runs in its own container
+		- Register with gridapps-d platform when platform start.
+		- Re-register automatically if platform restart.
+		- Redundant log messages removed.
+		- Works with user selected model instead of hard-coded ones. 
+		
+	3.3 State Estimator (TODO: @Andrew)
+		
+	3.4 RDRD(WSU) (TODO: @Anamika/Shiva)
+	
+	3.5 DER Dispatch (@TODO: @Jeff)
+	
+	3.6 VVO (@TODO: @Brandon)
+	
+5. **Source Code:**
+
+	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.01.0
+	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.01.0
+	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.01.0
+	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.01.0
+	- proven-cluster - https://github.com/pnnl/proven-cluster (@Eric: link for release branches)
+	- proven-docker - https://github.com/GRIDAPPSD/proven-docker
+	- proven-client - https://github.com/pnnl/proven-client
+	- proven-message - https://github.com/pnnl/proven-message
+	- fncs - https://github.com/GRIDAPPSD/fncs (@Andy/Tonya: link of specific branch)
+	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.01.0
+	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/feature/1146
+
+6. **Docker Container:**
+
+GridAPPS-D creates and starts following docker containers: 
+
+(@Tonya - add details of which container contains what. Ad link to tags of current release.)
+	- gridappsd-base
+	- gridappsd
+	- influxdb
+	- blazegraph
+	- proven
+	- sample-app
+	- viz
+	- redis
+	- mysql
+
+	
+
+
