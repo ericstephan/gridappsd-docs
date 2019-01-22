@@ -47,7 +47,7 @@ the updated model and measurements.
 its interaction with GridApps=D.**
 
 Data requirements
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 The DER application requires p and q values from the inverters attached to PVs, loads, and capacitors.
 The DER application also requires setting the p and q values of inverters attached to PVs.
