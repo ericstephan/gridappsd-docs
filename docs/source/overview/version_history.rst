@@ -55,9 +55,16 @@ GridAPPS-D v2019.01.0 release contains following features/updates:
     - gridappsd-python: 
         - (@Craig: list out updates here)
     - cim2glm:
-        - (@Tom list out updates here)
-         
-          
+        - Optional house cooling load components
+		- Single-phase power electronics and fuse ratings
+		- Inverter parameters changed from rotating machines to power electronics
+		- Solar and storage
+		- Measurements exported to the circuit metadata (JSON file); SimObject identifies the corresponding GridLAB-D object
+		- Supplemental scripts to populate feeder with measurements and houses
+		- Rotating machines, only parameters essential for the UAF lab microgrid
+		- In GridLAB-D export of loads, each node or triplex_node will have separate submeters for houses, PV inverters, battery inverters and rotating machines, i.e., not patterned after net metering
+    
+    
 2. **Data updates:**
 
        2.1 Power grid models:
