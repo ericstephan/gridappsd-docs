@@ -171,5 +171,62 @@ GridAPPS-D creates and starts following docker containers:
 	- mysql/mysql-server:5.7 - https://hub.docker.com/_/mysql
 
 	
+Version: 2019.02.0
+^^^^^^^^^^^^^^^^^^
 
+Release Date: Feb 2019
+
+1. Fixed Bugs:
+	- PROVEN - It can now store simulation input and output which can scale for IEEE8500 model.
+	- PROVEN - It can store data with real-time simulation run.
+	- PROVEN - Increased max data limit to unlimited.
+	- FNCS Goss Bridge - Corrected the timestamp format in simulation logs.
+	
+2. New Features:
+	- Viz - User can query log data from MySQL using Viz menu.
+	- Viz - Added menu to operate switches.
+	- FNCS GOSS bridge can do execute pause, resume and stop operations for simulation. 
+	- Update PROVEN docker container for automated builds.
+	
+
+3. **Source Code:**
+
+	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.02.0
+	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.02.0
+	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.02.0
+	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.02.0
+	- proven-cluster - 1.3.4 https://github.com/pnnl/proven-cluster/releases/tag/v1.3.4
+	- proven-client - 1.3.4 https://github.com/pnnl/proven-client/releases/tag/v1.3.4 
+	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.1 
+	- proven-docker - https://github.com/GRIDAPPSD/proven-docker
+	- fncs - https://github.com/GRIDAPPSD/fncs/tree/develop
+	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.02.0
+	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/feature/1146
+    - sample-app https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.02.0
+
+4. **Docker Container:**
+
+GridAPPS-D creates and starts following docker containers: 
+
+	- gridappsd/gridappsd:2019.01.0 - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.01.0
+            + proven-client - https://github.com/pnnl/proven-client
+            + cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.01.0
+	    + gridappsd/gridappsd-base:master - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.01.0
+              + zeromq - http://download.zeromq.org/zeromq-4.0.2.tar.gz
+              + zeromq_czmq - https://archive.org/download/zeromq_czmq_3.0.2/czmq-3.0.2.tar.gz
+              + activemq - http://mirror.olnevhost.net/pub/apache/activemq/activemq-cpp/3.9.4/activemq-cpp-library-3.9.4-src.tar.gz 
+              + fncs - https://github.com/GRIDAPPSD/fncs/tree/develop
+              + gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/feature/1146
+	- gridappsd/influxdb:2019.01.0 - https://github.com/GRIDAPPSD/gridappsd-data/tree/releases/2019.01.0
+            + influxdb:latest - https://hub.docker.com/_/influxdb
+	- gridappsd/blazegraph - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.01.0
+            + lyrasis/lbazegraph:2.1.4 - https://hub.docker.com/r/lyrasis/blazegraph
+	- gridappsd/proven - https://github.com/GRIDAPPSD/proven-docker
+            + proven-cluster - https://github.com/pnnl/proven-cluster/tree/v1.3.3
+            + proven-message - https://github.com/pnnl/proven-message/tree/v1.3.1
+	- gridappsd/sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.01.0
+            + gridappsd/app-container-base - (TODO: @Craig can you provide the repository?)
+	- gridappsd/viz:2019.01.0 - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.01.0
+	- redis:3.2.11-alpine - https://hub.docker.com/_/redis
+	- mysql/mysql-server:5.7 - https://hub.docker.com/_/mysql
 
