@@ -11,6 +11,11 @@ Uploading Model into Blazegraph
 
 .. include:: Uploading_model_using_blazegraph_workbench.rst
 
+Inserting Measurements into Blazegraph
+--------------------------------------
+
+.. include:: Inserting_measurements_blazegraph.rst
+
 Using Platform API
 ------------------
 
