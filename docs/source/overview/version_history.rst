@@ -198,7 +198,7 @@ Release Date: Feb 2019
   - Update PROVEN docker container for automated builds.
   
 
-3. **Source Code:**
+3. Source Code:
 
   - goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.02.0
   - gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.02.0
@@ -239,3 +239,39 @@ GridAPPS-D creates and starts following docker containers:
   - redis:3.2.11-alpine - https://hub.docker.com/_/redis
   - mysql/mysql-server:5.7 - https://hub.docker.com/_/mysql
 
+Version 2019.03.0
+^^^^^^^^^^^^^^^^^
+1. Bugs Fixed
+
+	- Sending a command to change set point to the PV inverter has no effect.
+	- Time series query return no data after simulation run.
+	- Viz: Switch operations not working on Firefox browser. Time on x-axis on plots is not displayed correctly.
+
+2. New Features
+		
+	- Log manager: Listening to topic instead of queue. Made logging easier within the platform. Log setting obtained from platform configuration
+	- GridAPPS-D – VOLTTRON initial interface created. https://github.com/VOLTTRON/volttron/tree/rabbitmq-volttron/examples/GridAPPS-DAgent
+	- Fault injection: Simulator can receive faults. Fault schema created in Test Manager. Workflow for fault processing documented on readthedocs.
+	- Viz: Created menu for capacitors, regulators.
+	- Proven: Facilitates direct disclosure of JSON messages to Proven via Hazelcast or REST; eliminating need for the proven-message library. Improved throughput and scalability for Proven's data disclosure component.  Disclosed data is now distributed or staged across the cluster to be used by future JET processing pipelines. 
+
+3. Documentation
+
+	- CIM100 documented
+	- Steps added for creating and testing an application
+	- Updated documentation on Simulation API
+
+4. Source Code
+
+	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.03.0
+	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.03.0
+	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.03.0
+	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.03.0
+	- proven-cluster - 1.3.4 https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.3
+	- proven-client - 1.3.4 https://github.com/pnnl/proven-client/releases/tag/v1.3.4 
+	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.3 
+	- proven-docker - https://github.com/GRIDAPPSD/proven-docker/tree/releases/2019.03.0
+	- fncs - https://github.com/GRIDAPPSD/fncs/tree/develop
+	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.03.0
+	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/feature/1146
+	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.03.0
