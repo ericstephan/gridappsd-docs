@@ -20,7 +20,7 @@ proposed from the GridAPPS-D project.
 Class Diagrams for the Profile
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Figure 1 through Figure 11 present the UML class diagrams generated from
+Figure 1 through Figure 16 present the UML class diagrams generated from
 Enterprise Architect [2]_. These diagrams provide an essential roadmap
 for understanding:
 
@@ -1108,5 +1108,5 @@ required for MySQL. The following manual edits were made:
 .. |imginverters| image:: CDPSM/media/cim_PowerElectronics.png
 .. |imgmachines| image:: CDPSM/media/cim_DERMachines.png
 .. |imghouses| image:: CDPSM/media/ext_Houses.png
-.. |imgmeas| image:: CDPSM/media/cim_MeasurementGRIDAPPSD.png
+.. |imgmeas| image:: CDPSM/media/cim_MeasurementGridAPPSD.png
 
