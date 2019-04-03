@@ -114,8 +114,7 @@ PhaseImpedanceData instances that define the lower triangle of the Z and Y
 matrices per unit length.  The row and column attributes must agree with 
 ACLineSegmentPhase:sequenceNumber.  The fourth way to specify impedance is 
 by wire/cable and spacing data, by association to WireSpacingInfo and 
-WireInfo.  (Note: each association is actually referenced as 
-PowerSystemResource.AssetDataSheet, as illustrated in Figure 8.) If there 
+WireInfo.  If there 
 are ACLineSegmentPhase instances reverse-associated to the ACLineSegment, 
 then per-phase modeling applies.  There are several use cases for 
 ACLineSegmentPhase: 1) single-phase or two-phase primary, 2) low-voltage 
