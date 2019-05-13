@@ -7,7 +7,7 @@ Query request should be sent on following queue: goss.gridappsd.process.request.
 Query Weather data
 ^^^^^^^^^^^^^^^^^^
 
-By default GridAPPS-D comes with weather data for the year 2013. 
+.. include:: api_examples/weather.rst
 
 Example Request:
 ::
