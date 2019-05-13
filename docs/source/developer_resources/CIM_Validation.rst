@@ -22,10 +22,11 @@ extension file).
 
 UML Profiles are domain or technology  specific representations
 of the original model.  UML profiles are generated in a variety of ways:
+
 *  By hand, in other words a human sterotyping CIM UML into a 
    data structure.
 *  Using a tool such as CIMContextor (need reference), CIMTool 
-(need reference), or Enterprise Architect. 
+*  (future) Enterprise Architect. 
 
 Extending CIM
 -------------
