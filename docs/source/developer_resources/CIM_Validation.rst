@@ -16,17 +16,13 @@ the blueprints for application software like GridAPPS-D to represent
 data structures, message payloads, and information exchanges between
 applications.  
 
-To represent the model CIM uses the Unified Modeling Language (UML), 
-in an application Sparx Enterprise Architect project file (*.eap 
-extension file).  
+To represent the model, CIM is written using the Unified Modeling 
+Language (UML) using Sparx Enterprise Architect.  The model is stored
+in a project file (*.eap extension file).  
 
 UML Profiles are domain or technology  specific representations
 of the original model.  UML profiles are generated in a variety of ways:
-
-*  By hand, in other words a human sterotyping CIM UML into a 
-   data structure.
-*  Using a tool such as CIMContextor (need reference), CIMTool 
-*  (future) Enterprise Architect. 
+including: by hand, using a tool such as CIMContextor/CIMTool.
 
 Extending CIM
 -------------
@@ -49,6 +45,7 @@ Validation Techniques
 ---------------------
 
 Well-Formed UML Compliance
+--------------------------
 In the IEC TC 57  13, 14, and 16 Working Groups the CIM Model Managers are 
 relied upon for any updates to the UML.  Before a release occurs the
 JCleanCim tool (http://tanjakostic.org/jcleancim/index.html) is used
@@ -61,8 +58,8 @@ any problematic areas.   In addition the JCimClean tool original log
 report for CIM100 can be compared against the GridAPPS-D CIMv100.
 
 
-CIMContextor and CIMTool
-------------------------
+Well-Formed Profile 
+-------------------
 Two external tools have been developed to create CIM profiles based on
 the UML.  Both CIMTool and CIMContextor can create Resource Description 
 Framework Schema (RDFS) profiles from CIM to validate how CIMv100 classes 
