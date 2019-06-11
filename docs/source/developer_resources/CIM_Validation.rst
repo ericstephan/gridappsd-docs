@@ -1,5 +1,3 @@
-CIM Validation 
-^^^^^^^^^^^^^^
 
 This section presents an overview of CIM Validation techniques that
 will be expanded upon in the future.  The purpose of CIM validation
@@ -7,7 +5,7 @@ is to assess the level of compliance GRIDAPPS-D is using in its
 use of CIM version 100.  
 
 Introduction
-------------
+^^^^^^^^^^^^
 
 In electrical power distribution and transmission the Common 
 Information Model (CIM) is a technology agnostic standard developed by
@@ -25,7 +23,7 @@ of the original model.  UML profiles are generated in a variety of ways:
 including: by hand, using a tool such as CIMContextor/CIMTool.
 
 Extending CIM
--------------
+^^^^^^^^^^^^^
 
 CIM is built on universally understood power grid concepts which
 means that the UML should be generally applicable, When the needs
@@ -42,10 +40,10 @@ series developed for use by ENTSO-E provides an excellent end-to-end
 series of extension use cases for the European power grid.
 
 Validation Techniques
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Well-Formed UML Compliance
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 In the IEC TC 57  13, 14, and 16 Working Groups the CIM Model Managers are 
 relied upon for any updates to the UML.  Before a release occurs the
 JCleanCim tool (http://tanjakostic.org/jcleancim/index.html) is used
@@ -59,7 +57,7 @@ report for CIM100 can be compared against the GridAPPS-D CIMv100.
 
 
 Well-Formed Profile 
--------------------
+^^^^^^^^^^^^^^^^^^^
 Two external tools have been developed to create CIM profiles based on
 the UML.  Both CIMTool and CIMContextor can create Resource Description 
 Framework Schema (RDFS) profiles from CIM to validate how CIMv100 classes 
@@ -69,7 +67,7 @@ flag any formatting or structural errors.
 
 
 Final Thoughts
---------------
+^^^^^^^^^^^^^^
 This section is expected to evolve in the spring/summer of 2019 with the
 advancement of CIM Model Manager tools that were previously only accessible
 to the model managers or based on advancements of validation techniques 
