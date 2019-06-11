@@ -274,3 +274,41 @@ Version 2019.03.0
 	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.03.0
 	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/feature/1146
 	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.03.0
+
+Version 2019.06.0
+^^^^^^^^^^^^^^^^^
+1. Bugs Fixed
+
+	- Updated configuration, power grid model and simulation API for CIM100 and app evaluation features addition.
+	- All logs are being published to topic intead of queue. 
+	
+2. New Features
+		
+	- Communication outages: Platorm supports input and/or output outage request with simulation for all or some selected power grid components. Outages are initiated and removed at the requested start and end time. 
+	- Fault injection: Platform can receive faults with simulation request and forwards them to co-simulator.
+	- Viz UI updated: Input form added for communication outage and fault parameter selection. Input form moved from single page to saperate tabs.
+	- CIM version update: Updated CIM version to CIM100. Added support for Recloser and Breaker in model parsing.
+	- New methods in Python wrapper: Capability added in gridappsd-python to start, stop and run a simulation directly from python using yaml or json.
+	- Sample app container move to Python 3.6 as default. Updated gridappsd-sample_app to use updated contianer.grid-docker
+	- Debug scripts added: Added scripts in gridappsd-docker to run paltform, co-simulator and simulator in saperate terminals for debugging purposes.
+	- **Breaking API change** - Simulation input and output topics changed in gridappsd-python from FNCS_INPUT_TOPIC to SIMULATION_INPUT and FNCS_OUTPUT_TOPIC to SIMULATION_OUTPUT.
+
+
+3. Documentation
+
+	- Using GridAPPS-D documentation section updated for new UI input form with communication outages and faults selection.
+	
+4. Source Code
+
+	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.06.0
+	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.06.0
+	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.06.0
+	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.06.0
+	- proven-cluster - 1.3.4 https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.3
+	- proven-client - 1.3.4 https://github.com/pnnl/proven-client/releases/tag/v1.3.4 
+	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.3 
+	- proven-docker - https://github.com/GRIDAPPSD/proven-docker/tree/releases/2019.06.0
+	- fncs - https://github.com/GRIDAPPSD/fncs/tree/develop
+	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.06.0
+	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/feature/1146
+	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.06.0
