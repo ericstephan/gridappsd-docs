@@ -28,12 +28,16 @@ Messaging
 
 CIM Documentation
 -----------------
-.. include:: CDPSM_RC1.rst
+.. include:: CDPSM.rst
 
 Platform UML Diagrams
 ---------------------
 .. include:: UML_Diagrams.rst
 .. include:: RC1_Tasks.rst
+
+CIM Validation
+--------------
+.. include:: CIM_Validation.rst
 
 
 
