@@ -294,6 +294,7 @@ Version 2019.06.0
 	- Debug scripts added: Added scripts in gridappsd-docker to run platform, co-simulator and simulator in separate terminals for debugging purposes.
 	- Sensor service in available in gridappsd container by default. Sensor service is no longer required to be added in gridappsd container via docker-compose file.
 	- **Breaking API change** - Simulation input and output topics changed in gridappsd-python from FNCS_INPUT_TOPIC to SIMULATION_INPUT and FNCS_OUTPUT_TOPIC to SIMULATION_OUTPUT.
+	- **Breaking API change** - Simulation request return a json with simulation id and list of events with their uuids instead of just simulation id.
 
 
 3. Documentation
