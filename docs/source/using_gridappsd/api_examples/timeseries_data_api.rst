@@ -77,7 +77,7 @@ Example Request:
 ::
 
 	{"queryMeasurement": "PROVEN_MEASUREMENT",
- 	 "queryFilter": {"hasSimulationId": "751004304"},
+ 	 "queryFilter": {"simulation_id": "751004304"},
   	"responseFormat": "JSON"}
 
 
@@ -107,22 +107,23 @@ Example Response for result format JSON:
 	"id":"131754834"
 	}
 	
-Allowed values for qwueryFilter are:
+Allowed values for queryFilter are:
 ::
 
 	Both input and output message type:
-	startTime [number] 
-	endTime [number]
-	hasMrid [string]
-	hasSimulationId [string]
+	starttime [number] 
+	endtime [number]
+	measurement_mrid [string]
+	simulation_id [string]
 	hasSimulationMessageType ["OUTPUT" | "INPUT"]
 	
 	Ouput message type:
-	hasAngle [number]
-	hasMagnitude [number]
+	angle [number]
+	magnitude [number]
 	
 	Input Message type:
 	hasMeasurementDifference  ["FORWARD"  | "REVERSE"]
-	hasDifferenceAttribute [string]
-	hasObject [string]
-	hasValue [number]
+	attribute [string]
+	difference_mrid [string]
+	object [string]
+	value [number]
