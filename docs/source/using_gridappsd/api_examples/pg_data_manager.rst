@@ -251,7 +251,7 @@ Returns details for a particular object based on the object Id.
 
 Allowed parameters are:
 
-- modelId (optional) - when specified it searches against that model, if empty it will search against all models
+- modelId - when specified it searches against that model, if empty it will search against all models
 - objectType (optional) – type of objects you wish to return details for.
 - resultFormat – XML/JSON/CSV ,  Will return result bindings based on the select part of the query string.
 
@@ -259,6 +259,7 @@ Example Request:   goss.gridappsd.process.request.data.powergridmodel
 ::
 
 	{
+		"modelId": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
 		"requestType": "QUERY_OBJECT_IDS",
 		"resultFormat": "JSON",
 		"objectType": "LoadBreakSwitch"
@@ -293,6 +294,7 @@ Example Request:   goss.gridappsd.process.request.data.powergridmodel
 ::
 
 	{
+		"modelId": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
 		"requestType": "QUERY_OBJECT_DICT",
 		"resultFormat": "JSON",
 		"objectType": "LinearShuntCompensator"
@@ -339,6 +341,7 @@ Example Request:   goss.gridappsd.process.request.data.powergridmodel
 ::
 
 	{
+		"modelId": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
 		"requestType": "QUERY_OBJECT_MEASUREMENTS",
 		"resultFormat": "JSON",
 		"objectType": "LinearShuntCompensator"
