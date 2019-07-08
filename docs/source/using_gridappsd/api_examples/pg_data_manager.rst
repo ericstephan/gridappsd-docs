@@ -297,7 +297,8 @@ Example Request:   goss.gridappsd.process.request.data.powergridmodel
 		"modelId": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
 		"requestType": "QUERY_OBJECT_DICT",
 		"resultFormat": "JSON",
-		"objectType": "LinearShuntCompensator"
+		"objectType": "LinearShuntCompensator",
+		"objectId": "_EF2FF8C1-A6A6-4771-ADDD-A371AD929D5B"
 	}
 	
 Example Response:
