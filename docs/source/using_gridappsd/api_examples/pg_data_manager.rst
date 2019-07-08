@@ -279,15 +279,15 @@ Example Response:
 	}
 	
 
-Query Object Dictionary By Type
+Query Object Dictionary 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Returns details for either all objects of a particular type or a particular object based on the object Id.
+Returns details for either all objects of a particular type or a particular object based on the object Id.  Ejither the object type or id is required, but not both.
 
 Allowed parameters are:
 
-- objectType – type of objects you wish to return details for.
 - modelId - model that you wish to return objects from.
-- objectId (optional) - mrid of the object you wish to return details for.  If not provided it will return all of the specified type.
+- objectType (not required if objectId is set) – type of objects you wish to return details for.
+- objectId (not required if objectType is set) - mrid of the object you wish to return details for, if set this will override objectType.  
 - resultFormat – XML/JSON ,  Will return result bindings based on the select part of the query string.
 
 Example Request:   goss.gridappsd.process.request.data.powergridmodel
