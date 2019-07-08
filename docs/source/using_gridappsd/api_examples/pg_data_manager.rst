@@ -286,7 +286,7 @@ Returns details for either all objects of a particular type or a particular obje
 Allowed parameters are:
 
 - modelId - model that you wish to return objects from.
-- objectType (not required if objectId is set) – type of objects you wish to return details for.
+- objectType (not required if objectId is set) – type of object you wish to return details for.
 - objectId (not required if objectType is set) - mrid of the object you wish to return details for, if set this will override objectType.  
 - resultFormat – XML/JSON ,  Will return result bindings based on the select part of the query string.
 
