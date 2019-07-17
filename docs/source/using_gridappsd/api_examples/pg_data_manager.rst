@@ -351,29 +351,21 @@ Example Request:   goss.gridappsd.process.request.data.powergridmodel
 Example Response:
 ::
 
-	{
-	 [
-	   {
-		"id": "_2199D08B-9352-2085-102F-6B207E0BEBA3",
-		"ConductingEquipment.BaseVoltage": "_C0A00494-BB68-7476-57E3-9741545AE287",
-		"Equipment.EquipmentContainer": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
-		"IdentifiedObject.mRID": "_2199D08B-9352-2085-102F-6B207E0BEBA3",
-		"IdentifiedObject.name": "capbank0a",
-		"PowerSystemResource.Location": "_19B9D45D-F556-01D4-8094-3AE64D5E63A0",
-		"LinearShuntCompensator.b0PerSection": "100",
-		"LinearShuntCompensator.bPerSection": "0.0077160494",
-		"LinearShuntCompensator.g0PerSection": "0",
-		"LinearShuntCompensator.gPerSection": "0",
-		"ShuntCompensator.aVRDelay": "100",
-		"ShuntCompensator.grounded": "true",
-		"ShuntCompensator.maximumSections": "1",
-		"ShuntCompensator.nomU": "7200",
-		"ShuntCompensator.normalSections": "1",
-		"ShuntCompensator.phaseConnection": "PhaseShuntConnectionKind.Y",
-		"type": "LinearShuntCompensator"
-	   },....	
+	[
+       {
+            "measid": "_eaa9a535-5b4d-4fc1-b4a3-39beba240e59",
+            "type": "A",
+            "class": "Analog",
+            "name": "LoadBreakSwitch_2002200004641085_sw_Current",
+            "bus": "d5587291-3_int",
+            "phases": "A",
+            "eqtype": "LoadBreakSwitch",
+            "eqname": "2002200004641085_sw",
+            "eqid": "_67D1E4A5-102E-5A3D-CD64-947AB1D1C8F4",
+            "trmid": "_BA955573-0F73-5A79-9A11-60A6BC33F952"
+        },....	
 	 ]
-	}
+	
 
 
 
