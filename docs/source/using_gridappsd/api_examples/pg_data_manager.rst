@@ -330,12 +330,13 @@ Example Response:
 
 Query Object Measurements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Returns details for either all measurements within a model or just those connectied to a particular object based on the object Id.
+Returns details for measurements within a model, can be for all objects of a particular type or for those connected to a particular object based on the objectId. If neither objectType or objectId is provided it will provide all measurements belonging to the model.
 
 Allowed parameters are:
 
 - modelId - model that you wish to return measurements from.
-- objectId (optional) - mrid of the object you wish to return measurements for.  If not provided it will provide all measurements belonging to the model.
+- objectType (optional) – type of object you wish to return measurements for.
+- objectId (optional) - mrid of the object you wish to return measurements for.  If set this will override objectType. 
 - resultFormat – XML/JSON ,  Will return result bindings based on the select part of the query string.
 
 Example Request:   goss.gridappsd.process.request.data.powergridmodel
@@ -345,7 +346,8 @@ Example Request:   goss.gridappsd.process.request.data.powergridmodel
 		"modelId": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
 		"requestType": "QUERY_OBJECT_MEASUREMENTS",
 		"resultFormat": "JSON",
-		"objectId": "_7A02B3B0-2746-EB24-45A5-C3FBA8ACB88E"
+		"objectType": "LinearShuntCompensator",
+		"objectId": "_2199D08B-9352-2085-102F-6B207E0BEBA3"
 	}
 	
 Example Response:
