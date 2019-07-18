@@ -281,7 +281,7 @@ Example Response:
 
 Query Object Dictionary 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Returns details for either all objects of a particular type or a particular object based on the object Id.  Ejither the object type or id is required, but not both.
+Returns details for either all objects of a particular type or a particular object based on the object Id.  Either the object type or id is required, but not both.
 
 Allowed parameters are:
 
@@ -345,24 +345,24 @@ Example Request:   goss.gridappsd.process.request.data.powergridmodel
 		"modelId": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
 		"requestType": "QUERY_OBJECT_MEASUREMENTS",
 		"resultFormat": "JSON",
-		"objectType": "LinearShuntCompensator"
+		"objectId": "_7A02B3B0-2746-EB24-45A5-C3FBA8ACB88E"
 	}
 	
 Example Response:
 ::
 
 	[
-       {
-            "measid": "_eaa9a535-5b4d-4fc1-b4a3-39beba240e59",
-            "type": "A",
+      {
+            "measid": "_59d526ff-32c0-4947-ab58-45f283636786",
+            "type": "PNV",
             "class": "Analog",
-            "name": "LoadBreakSwitch_2002200004641085_sw_Current",
-            "bus": "d5587291-3_int",
+            "name": "ACLineSegment_ln5532752-2_Voltage",
+            "bus": "m1047534",
             "phases": "A",
-            "eqtype": "LoadBreakSwitch",
-            "eqname": "2002200004641085_sw",
-            "eqid": "_67D1E4A5-102E-5A3D-CD64-947AB1D1C8F4",
-            "trmid": "_BA955573-0F73-5A79-9A11-60A6BC33F952"
+            "eqtype": "ACLineSegment",
+            "eqname": "ln5532752-2",
+            "eqid": "_7A02B3B0-2746-EB24-45A5-C3FBA8ACB88E",
+            "trmid": "_6B5B889C-E7E1-3444-CC63-7A589AC0DA8F"
         },....	
 	 ]
 	
