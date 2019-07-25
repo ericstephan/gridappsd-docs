@@ -279,15 +279,15 @@ Example Response:
 	}
 	
 
-Query Object Dictionary By Type
+Query Object Dictionary 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Returns details for either all objects of a particular type or a particular object based on the object Id.
+Returns details for either all objects of a particular type or a particular object based on the object Id.  Either the object type or id is required, but not both.
 
 Allowed parameters are:
 
-- objectType – type of objects you wish to return details for.
 - modelId - model that you wish to return objects from.
-- objectId (optional) - mrid of the object you wish to return details for.  If not provided it will return all of the specified type.
+- objectType (not required if objectId is set) – type of object you wish to return details for.
+- objectId (not required if objectType is set) - mrid of the object you wish to return details for, if set this will override objectType.  
 - resultFormat – XML/JSON ,  Will return result bindings based on the select part of the query string.
 
 Example Request:   goss.gridappsd.process.request.data.powergridmodel
@@ -297,7 +297,8 @@ Example Request:   goss.gridappsd.process.request.data.powergridmodel
 		"modelId": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
 		"requestType": "QUERY_OBJECT_DICT",
 		"resultFormat": "JSON",
-		"objectType": "LinearShuntCompensator"
+		"objectType": "LinearShuntCompensator",
+		"objectId": "_EF2FF8C1-A6A6-4771-ADDD-A371AD929D5B"
 	}
 	
 Example Response:
@@ -329,12 +330,13 @@ Example Response:
 
 Query Object Measurements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Returns details for either all measurements within a model or just those connectied to a particular object based on the object Id.
+Returns details for measurements within a model, can be for all objects of a particular type or for those connected to a particular object based on the objectId. If neither objectType or objectId is provided it will provide all measurements belonging to the model.
 
 Allowed parameters are:
 
 - modelId - model that you wish to return measurements from.
-- objectId (optional) - mrid of the object you wish to return measurements for.  If not provided it will provide all measurements belonging to the model.
+- objectType (optional) – type of object you wish to return measurements for.
+- objectId (optional) - mrid of the object you wish to return measurements for.  If set this will override objectType. 
 - resultFormat – XML/JSON ,  Will return result bindings based on the select part of the query string.
 
 Example Request:   goss.gridappsd.process.request.data.powergridmodel
@@ -344,35 +346,28 @@ Example Request:   goss.gridappsd.process.request.data.powergridmodel
 		"modelId": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
 		"requestType": "QUERY_OBJECT_MEASUREMENTS",
 		"resultFormat": "JSON",
-		"objectType": "LinearShuntCompensator"
+		"objectType": "LinearShuntCompensator",
+		"objectId": "_2199D08B-9352-2085-102F-6B207E0BEBA3"
 	}
 	
 Example Response:
 ::
 
-	{
-	 [
-	   {
-		"id": "_2199D08B-9352-2085-102F-6B207E0BEBA3",
-		"ConductingEquipment.BaseVoltage": "_C0A00494-BB68-7476-57E3-9741545AE287",
-		"Equipment.EquipmentContainer": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
-		"IdentifiedObject.mRID": "_2199D08B-9352-2085-102F-6B207E0BEBA3",
-		"IdentifiedObject.name": "capbank0a",
-		"PowerSystemResource.Location": "_19B9D45D-F556-01D4-8094-3AE64D5E63A0",
-		"LinearShuntCompensator.b0PerSection": "100",
-		"LinearShuntCompensator.bPerSection": "0.0077160494",
-		"LinearShuntCompensator.g0PerSection": "0",
-		"LinearShuntCompensator.gPerSection": "0",
-		"ShuntCompensator.aVRDelay": "100",
-		"ShuntCompensator.grounded": "true",
-		"ShuntCompensator.maximumSections": "1",
-		"ShuntCompensator.nomU": "7200",
-		"ShuntCompensator.normalSections": "1",
-		"ShuntCompensator.phaseConnection": "PhaseShuntConnectionKind.Y",
-		"type": "LinearShuntCompensator"
-	   },....	
+	[
+      {
+            "measid": "_59d526ff-32c0-4947-ab58-45f283636786",
+            "type": "PNV",
+            "class": "Analog",
+            "name": "ACLineSegment_ln5532752-2_Voltage",
+            "bus": "m1047534",
+            "phases": "A",
+            "eqtype": "ACLineSegment",
+            "eqname": "ln5532752-2",
+            "eqid": "_7A02B3B0-2746-EB24-45A5-C3FBA8ACB88E",
+            "trmid": "_6B5B889C-E7E1-3444-CC63-7A589AC0DA8F"
+        },....	
 	 ]
-	}
+	
 
 
 
