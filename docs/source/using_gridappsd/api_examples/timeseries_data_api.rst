@@ -138,3 +138,75 @@ Please find some sample requests with various query filters
 	{"queryMeasurement": "simulation",
  	"queryFilter": {"simulation_id": "582881157", "angle": 23.706919634782313},
 	"responseFormat": "JSON"}
+	
+Query Sensor Service  Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Returns output of sensor sensor service.
+
+Example Request:
+::
+
+	{"queryMeasurement": "gridappsd-sensor-simulator",
+ 	"queryFilter": {"simulation_id": "582881157"},
+	"responseFormat": "JSON"}
+	
+Example Response for result format JSON:
+::	
+		{
+			"data": {
+			"measurements": [
+				{
+				"name": "gridappsd-sensor-simulator",
+				"points": [
+					{
+						"row": {
+						"entry": [
+							{
+								"key": "instance_id",
+								"value": "gridappsd-sensor-simulator-1564186315783"
+							},
+							{
+								"key": "hasSimulationMessageType",
+								"value": "OUTPUT"
+							},
+							{
+								"key": "measurement_mrid",
+								"value": "_0009caa4-23ef-41b9-9db7-624f3f47460c"
+							},
+							{
+								"key": "angle",
+								"value": "-152.44531328865978"
+							},
+							{
+								"key": "magnitude",
+								"value": "2470.4939175057075"
+							},
+							{
+								"key": "simulation_id",
+								"value": "1512566584"
+							},
+							{
+								"key": "time",
+								"value": "1564186297"
+							}
+							]
+							}
+					},.........]}]
+			},
+			"responseComplete": true,
+			"id": "597021681"
+		}
+
+
+Allowed values for queryFilter are:
+::
+
+	starttime [number] 
+	endtime [number]
+	measurement_mrid [string]
+	simulation_id [string]
+	instance_id
+	angle [number]
+	magnitude [number]
+	value [number]
