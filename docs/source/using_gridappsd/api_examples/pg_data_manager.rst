@@ -1,4 +1,8 @@
-The Powergrid Model Data Manager API allows you to query the powergrid model data store.  Six actions are available: Query_Model_names, Query, Query_Object, Query_Object_Types, Query_Model, and Put_Model
+The Powergrid Model Data Manager API allows you to query the powergrid model data store. 
+
+Query Request Queue
+^^^^^^^^^^^^^^^^^^^
+Query request should be sent on following queue: goss.gridappsd.process.request.data.powergridmodel
 
 Query Model Info
 ^^^^^^^^^^^^^^^^
