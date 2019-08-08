@@ -134,7 +134,7 @@ In order to start a service with an application (sample app in this example) fol
 2. Inside sample app container execute following commands 
 ::
 	
-	sudo apt-get update
+	apt-get update
 
 	apt-get install vim
 
