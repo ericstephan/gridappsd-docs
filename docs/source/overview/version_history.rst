@@ -385,6 +385,7 @@ Version 2019.08.0
 	- Viz added display for Voltage Violation service output
 	- Viz can display Lot/Long coordinated for 9500 node model.
 	- Breaking Change: JSON format for timeseries query response is flattend out
+	- Resolved 500 Internal server error for storing simulation input.
 	- Houses are created and uploaded to Blazegraph for 123 node model
 	- Additonal column process_type added for logs to distinguish process id for simulation
 	
