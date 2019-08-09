@@ -357,17 +357,48 @@ Version 2019.07.0
 		- GridLAB-D switched from feature/1146 to develop
 		
 
-4. Source Code
+3. Source Code
 
-	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.06.0
-	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.06.0
-	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.06.0
-	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.06.0
+	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.07.0
+	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.07.0
+	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.07.0
+	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.07.0
 	- proven-cluster - https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.4
 	- proven-client - https://github.com/pnnl/proven-client/releases/tag/v1.3.5
 	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.5.4
 	- proven-docker - https://github.com/GRIDAPPSD/proven-docker/tree/releases/2019.06.0
 	- fncs - https://github.com/GRIDAPPSD/fncs/tree/develop
-	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.06.0
+	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.07.0
 	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/develop
-	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.06.0
+	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.07.0
+	
+	
+Version 2019.08.0
+^^^^^^^^^^^^^^^^^
+
+
+1. New Features
+		
+	- Viz added capability to select power/voltage/tap measurments for custom plotting
+	- Control attributes are back for Capacitors
+	- Added Voltage Violation service that publishes list of measurement ids with per unit voltages that are out of range every 15 minutes
+	- Viz added display for Voltage Violation service output
+	- Viz can display Lot/Long coordinated for 9500 node model.
+	- Breaking Change: JSON format for timeseries query response is flattend out
+	- Houses are created and uploaded to Blazegraph for 123 node model
+	- Additonal column process_type added for logs to distinguish process id for simulation
+	
+2. Source Code
+
+	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.08.0
+	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.08.0
+	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.08.0
+	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.08.0
+	- proven-cluster - https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.4
+	- proven-client - https://github.com/pnnl/proven-client/releases/tag/v1.3.5
+	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.5.4
+	- proven-docker - https://github.com/GRIDAPPSD/proven-docker/tree/releases/2019.08.0
+	- fncs - https://github.com/GRIDAPPSD/fncs/tree/develop
+	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.08.0
+	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/develop
+	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.08.0
