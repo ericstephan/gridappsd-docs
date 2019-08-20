@@ -394,7 +394,7 @@ Version 2019.08.0
 	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.08.0
 	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.08.0
 	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.08.0
-	- proven-cluster - https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.4
+	- proven-cluster - https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.5
 	- proven-client - https://github.com/pnnl/proven-client/releases/tag/v1.3.5
 	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.5.4
 	- proven-docker - https://github.com/GRIDAPPSD/proven-docker/tree/releases/2019.08.0
@@ -408,8 +408,8 @@ Version 2019.08.1
 
 1. New Features
 		
-	- Show start button when simulation completes by subscribing to the stop simulation message.
-	- Bug fix: Simulation id dropdown is not showing selected id in Browse-data-logs
+	- Viz: Change simulation pause button to start button when simulation completes.
+	- Bug fix: Simulation id dropdown is not showing selected id in Browse-data-logs.
 	- Bug fix: Timeseries queries returning same object multiple times. 
 	- Bug fix: Weather file containes only 10 minute data even if simulation duration is longer.
 	
@@ -419,7 +419,7 @@ Version 2019.08.1
 	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.08.1
 	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.08.1
 	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.08.0
-	- proven-cluster - https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.4
+	- proven-cluster - https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.5
 	- proven-client - https://github.com/pnnl/proven-client/releases/tag/v1.3.5
 	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.5.4
 	- proven-docker - https://github.com/GRIDAPPSD/proven-docker/tree/releases/2019.08.0
