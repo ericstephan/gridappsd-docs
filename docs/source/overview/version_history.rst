@@ -427,3 +427,26 @@ Version 2019.08.1
 	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.08.1
 	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/develop
 	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.08.1
+	
+Version 2019.09.0
+^^^^^^^^^^^^^^^^^
+
+1. New Features
+		
+	- Fault Processing: Faults are working on radial feeders. 
+	- Note: Faults are not working on meshed systems. If you have a meshed system then send switch open message to simulate the fault.
+	
+2. Source Code
+
+	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.09.0
+	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.09.0
+	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.09.0
+	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.09.0
+	- proven-cluster - https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.5
+	- proven-client - https://github.com/pnnl/proven-client/releases/tag/v1.3.5
+	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.5.4
+	- proven-docker - https://github.com/GRIDAPPSD/proven-docker/tree/releases/2019.09.0
+	- fncs - https://github.com/GRIDAPPSD/fncs/tree/develop
+	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.09.0
+	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/develop
+	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.09.0
