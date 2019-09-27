@@ -96,12 +96,13 @@ Example Message:
 	{
 		"simulation_id" : "12ae2345",
 	    "message" : {
-	    	"timestamp" : "YYYY-MM-DDThh:mm:ss.sssZ",
-	        "measurements" : [{
-	            "measurement_mrid" : "123a456b-789c-012d-345e-678f901a234b"
-	            "magnitude" : 3410.456,
-	            "angle" : -123.456
-	        }]
+	    	"timestamp" : "1357048800",
+	        "measurements" : {
+	            "123a456b-789c-012d-345e-678f901a234b":{
+					"measurement_mrid" : "123a456b-789c-012d-345e-678f901a234b"
+					"magnitude" : 3410.456,
+					"angle" : -123.456
+	        }
 	    }
 	}
 	
@@ -137,7 +138,7 @@ Topic:
 	
 ::
 
-	/topic/goss.gridappsd.fncs.input
+	/topic/goss.gridappsd.simulation.input.[simulation_id]
 
 Example Message:
 
@@ -146,7 +147,7 @@ Example Message:
 	{
 		"simulation_id" : "12ae2345",
 	    "message" : {
-	    	"timestamp" : "2018-01-08T13:27:00.000Z",
+	    	"timestamp" : "1357048800",
 	       	"difference_mrid" : "123a456b-789c-012d-345e-678f901a235c"
 	        "reverse_differences" : [
 				{

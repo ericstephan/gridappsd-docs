@@ -450,3 +450,34 @@ Version 2019.09.0
 	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.09.0
 	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/develop
 	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.09.0
+
+Version 2019.09.1
+^^^^^^^^^^^^^^^^^
+
+1. New Features
+		
+	- BREAKING CHANGE: Measurements in simulation output message changed from array to dictionary.
+	- Simulation are now working for 9500 model with houses.
+	- Added missing measurement in blazegraph for houses.
+	- Voltage violation service and Viz app updated to work with new simulation output format.
+	- Faults are working with 9500 model.
+	- Viz app: User can select services and their input parameters in simulation request form.
+	- Viz app: Y-axis label corrected if plot value is same during the simulation run.
+	- Simulation request API updated to take user input parameters for services. 
+	- Timezone corrected for pre-loaded weather data. 
+	- Operational limit set on the power grid models in blazegraph. 
+	
+2. Source Code
+
+	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.09.1
+	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.09.1
+	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.09.1
+	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.09.1
+	- proven-cluster - https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.7
+	- proven-client - https://github.com/pnnl/proven-client/releases/tag/v1.3.6
+	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.5.4
+	- proven-docker - https://github.com/GRIDAPPSD/proven-docker/tree/releases/2019.09.1
+	- fncs - https://github.com/GRIDAPPSD/fncs/tree/develop
+	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.09.1
+	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/develop
+	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.09.1
