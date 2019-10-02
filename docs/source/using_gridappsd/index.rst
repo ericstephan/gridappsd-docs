@@ -65,7 +65,7 @@ Timeseries API
 Services
 --------
 
-`Sensor Simulator Service <https://gridappsd-sensor-simulator.readthedocs.io>` _
+`Sensor Simulator Service <https://gridappsd-sensor-simulator.readthedocs.io>`_
 
 Hosting Application
 -------------------
