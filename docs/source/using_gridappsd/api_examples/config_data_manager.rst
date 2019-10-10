@@ -236,7 +236,7 @@ Request: goss.gridappsd.process.request.config
       "solver_method": "NR",
       "schedule_name": "ieeezipload",
       "simulation_broker_port": "61616",
-      "directory": "/tmp/gridlabdsimulation/"
+      "directory": "/tmp/dsssimulation/"
     }
   }
 
