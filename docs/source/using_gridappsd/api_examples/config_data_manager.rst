@@ -14,14 +14,14 @@ Request: goss.gridappsd.process.request.config
     "parameters": {
       "load_scaling_factor": "1.0",
       "i_fraction": "1.0",
-      "model_id": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
+      "model_id": "_C1C3E687-6FFD-C753-582B-632A27E28507",
       "p_fraction": "0.0",
       "simulation_id": "12345",
       "z_fraction": "0.0",
       "simulation_broker_host": "localhost",
       "simulation_name": "ieee8500",
       "simulation_duration": "60",
-      "simulation_start_time": "2018-02-18 00:00:00",
+      "simulation_start_time": "1518958800",
       "solver_method": "NR",
       "schedule_name": "ieeezipload",
       "simulation_broker_port": "61616",
@@ -48,7 +48,7 @@ Request:  goss.gridappsd.process.request.config
     "parameters": {
       "i_fraction": "1.0",
       "z_fraction": "0.0",
-      "model_id": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
+      "model_id": "_C1C3E687-6FFD-C753-582B-632A27E28507",
       "load_scaling_factor": "1.0",
       "schedule_name": "ieeezipload",
       "p_fraction": "0.0"
@@ -59,9 +59,9 @@ Response:
 ::
 
   object regulator_configuration {
-    name "rcon_VREG4";
-    connect_type WYE_WYE;
-    Control MANUAL; // OUTPUT_VOLTAGE;
+  name "rcon_reg1a";
+  connect_type WYE_WYE;
+	Control MANUAL; // LINE_DROP_COMP;
   .......
 
 Request GridLAB-D Symbols File
@@ -77,19 +77,27 @@ Request:  goss.gridappsd.process.request.config
   {
     "configurationType": "GridLAB-D Symbols",
     "parameters": {
-      "model_id": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"
+      "model_id": "_C1C3E687-6FFD-C753-582B-632A27E28507"
     }
   }
   
 Response:
 ::
-
-  {"feeder":[
-  {"swing_nodes":[
-  {"name":"source","bus":"sourcebus","phases":"ABC",
-    "nominal_voltage":66395.3,"x1":1693780.0,"y1":1.22775777570982E7}
-  ]},
-  {"capacitors":[
+{"feeders":[
+  {"name":"ieee123",
+    "mRID":"_C1C3E687-6FFD-C753-582B-632A27E28507",
+    "substation":"IEEE123",
+    "substationID":"_FE44B314-385E-C2BF-3983-3A10C6060022",
+    "subregion":"Medium",
+    "subregionID":"_1CD7D2EE-3C91-3248-5662-A43EFEFAC224",
+    "region":"IEEE",
+    "regionID":"_73C512BD-7249-4F50-50DA-D93849B89C43",
+    "swing_nodes":[
+    {"name":"source","bus":"150","phases":"ABC","nominal_voltage":2401.8,"x1":100.0,"y1":1500.0}
+    ],
+    "synchronousmachines":[
+    ],
+    "capacitors":[
   .......
 
 
@@ -105,7 +113,7 @@ Request: goss.gridappsd.process.request.config
 
   {
     "configurationType":"CIM Dictionary",
-    "parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}
+    "parameters":{"model_id":"_C1C3E687-6FFD-C753-582B-632A27E28507"}
    }
 
 Response:
@@ -156,7 +164,7 @@ Request: goss.gridappsd.process.request.config
 
   {
     "configurationType":"CIM Feeder Index",
-    "parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}
+    "parameters":{"model_id":"_C1C3E687-6FFD-C753-582B-632A27E28507"}
    }
 
 Response:
@@ -180,7 +188,7 @@ Request: goss.gridappsd.process.request.config
 
   {
     "configurationType":"CIM Feeder Index",
-    "parameters":{"model_id":"_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"}
+    "parameters":{"model_id":"_C1C3E687-6FFD-C753-582B-632A27E28507"}
    }
 
 Response:
@@ -225,14 +233,14 @@ Request: goss.gridappsd.process.request.config
     "parameters": {
       "load_scaling_factor": "1.0",
       "i_fraction": "1.0",
-      "model_id": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
+      "model_id": "_C1C3E687-6FFD-C753-582B-632A27E28507",
       "p_fraction": "0.0",
       "simulation_id": "12345",
       "z_fraction": "0.0",
       "simulation_broker_host": "localhost",
       "simulation_name": "ieee8500",
       "simulation_duration": "60",
-      "simulation_start_time": "2018-02-18 00:00:00",
+      "simulation_start_time": "1518958800",
       "solver_method": "NR",
       "schedule_name": "ieeezipload",
       "simulation_broker_port": "61616",
@@ -259,7 +267,7 @@ Request:  goss.gridappsd.process.request.config
     "parameters": {
       "i_fraction": "1.0",
       "z_fraction": "0.0",
-      "model_id": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3",
+      "model_id": "_C1C3E687-6FFD-C753-582B-632A27E28507",
       "load_scaling_factor": "1.0",
       "schedule_name": "ieeezipload",
       "p_fraction": "0.0"
@@ -288,7 +296,7 @@ Request:  goss.gridappsd.process.request.config
   {
     "configurationType": "DSS Coordinate",
     "parameters": {
-      "model_id": "_4F76A5F9-271D-9EB8-5E31-AA362D86F2C3"
+      "model_id": "_C1C3E687-6FFD-C753-582B-632A27E28507"
     }
   }
   
