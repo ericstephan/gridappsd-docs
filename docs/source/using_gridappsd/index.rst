@@ -62,7 +62,14 @@ Timeseries API
 
 .. include:: api_examples/timeseries_data_api.rst
 
-Hosting Application or Service
-------------------------------
+Services
+--------
+
+`Sensor Simulator Service <https://gridappsd-sensor-simulator.readthedocs.io>`_
+The `GridAPPSD's Sensor Simulator` simulates real devices based upon the magnitude of "prestine" simulated values.
+Currently the sensor service supports angle and magnitude measurements.
+
+Hosting Application
+-------------------
 
 .. include:: Developing_Apps.rst
