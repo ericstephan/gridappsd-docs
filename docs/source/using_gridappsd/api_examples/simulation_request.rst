@@ -144,38 +144,44 @@ Example Message:
 
 ::
 	
-	{
-		"simulation_id" : "12ae2345",
-	    "message" : {
-	    	"timestamp" : "1357048800",
-	       	"difference_mrid" : "123a456b-789c-012d-345e-678f901a235c"
-	        "reverse_differences" : [
-				{
-					"object" : "61A547FB-9F68-5635-BB4C-F7F537FD824E",
-	           		"attribute" : "ShuntCompensator.sections",
-	           		"value" : "1"
-	        	},
-				{
-					"object" : "E3CA4CD4-B0D4-9A83-3E2F-18AC5F1B55BA",
-	           		"attribute" : "ShuntCompensator.sections",
-	           		"value" : "0"
-	        	}
-			]
-	        "forward_differences" : [
-				{
-					"object" : "61A547FB-9F68-5635-BB4C-F7F537FD824E",
-	           		"attribute" : "ShuntCompensator.sections",
-	           		"value" : "0"
-	        	},
-				{
-					"object" : "E3CA4CD4-B0D4-9A83-3E2F-18AC5F1B55BA",
-	           		"attribute" : "ShuntCompensator.sections",
-	           		"value" : "1"
-	        	}
-			]
-	    	}
-		}
+  {
+    "command": "update",
+    "input": {
+        "simulation_id": "123456",
+        "message": {
+            "timestamp": 1357048800,
+            "difference_mrid": "123a456b-789c-012d-345e-678f901a235c",
+            "reverse_differences": [{
+
+                    "object": "61A547FB-9F68-5635-BB4C-F7F537FD824E",
+                    "attribute": "ShuntCompensator.sections",
+                    "value": 1
+                },
+                {
+
+                    "object": "E3CA4CD4-B0D4-9A83-3E2F-18AC5F1B55BA",
+                    "attribute": "ShuntCompensator.sections",
+                    "value": 0
+                }
+            ],
+            "forward_differences": [{
+
+                    "object": "61A547FB-9F68-5635-BB4C-F7F537FD824E",
+                    "attribute": "ShuntCompensator.sections",
+                    "value": 0
+                },
+                {
+
+                    "object": "E3CA4CD4-B0D4-9A83-3E2F-18AC5F1B55BA",
+                    "attribute": "ShuntCompensator.sections",
+                    "value": 1
+                }
+            	]
+        	}
+    	}
 	}
+
+
 
 	
 
