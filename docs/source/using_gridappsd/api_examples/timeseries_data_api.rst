@@ -112,7 +112,7 @@ Allowed values for queryFilter are:
 	Both input and output message type:
 	starttime [number] 
 	endtime [number]
-	measurement_mrid [string]
+	measurement_mrid [string] or [array of string values]
 	simulation_id [string]
 	hasSimulationMessageType ["OUTPUT" | "INPUT"]
 	
@@ -136,6 +136,11 @@ Please find some sample requests with various query filters
 	{"queryMeasurement": "simulation",
  	"queryFilter": {"simulation_id": "582881157", "angle": 23.706919634782313},
 	"responseFormat": "JSON"}
+	
+	{"queryMeasurement":"simulation",
+	"queryFilter":{"simulation_id":"1743450224",
+	"measurement_mrid":["_01625641-d9ae-4c34-8302-69a9620ec69d","_ffd6abc7-159d-4f6d-868b-7bf7b087ab85"]},
+	"responseFormat":"JSON"}
 	
 Query Sensor Service  Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
