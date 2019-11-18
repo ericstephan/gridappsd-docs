@@ -64,7 +64,19 @@ Example Request:
 			"schedule_name": "ieeezipload",
 			"z_fraction": "0",
 			"i_fraction": "1",
-			"p_fraction": "0"
+			"p_fraction": "0",
+			"model_state":{
+				"synchronousmachines":[
+					{"name":"diesel590","p":100.000,"q":140.000},
+					{"name":"diesel620","p":150.000,"q":500.000}
+				],
+				"switches":[
+					{"name":"2002200004641085_sw","open":true},
+					{"name":"2002200004868472_sw","open":true},
+					{"name":"l9407_48332_sw","open":true},
+					{"name":"tsw568613_sw","open":false}
+				]
+		    }
 		}
 	},
 	
