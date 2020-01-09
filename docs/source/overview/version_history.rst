@@ -522,3 +522,37 @@ Version 2019.10.0
 	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.10.0
 	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/develop
 	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.10.0
+
+Version 2019.12.0
+^^^^^^^^^^^^^^^^^
+
+1. New Features
+		
+	- Updated and documented MRID UUID generator to ensure compliance with UUID 4
+	- Integrate DNP3 service with GridAPPS-D container
+	- Created API to get user role based on login
+	- Added a user for testmanager to distinguish between simulation commands and alarms
+	- Removed hardcoded corrdinate identifcation from Viz
+	- Added capability to change model state before starting a simulation.
+	- Added feature on UI to upload a file with faults and comunication output
+	- Created user login page on UI 
+	- Added light/dark toggle themeon UI 
+	- Wrote a SWING_PQ node for each potential island in power grid model.
+	- Fixed issues for app eveluations as reported by app developers or evluation team
+	
+2. Source Code
+
+	- goss-gridapps-d - https://github.com/GRIDAPPSD/GOSS-GridAPPS-D/tree/releases/2019.12.0
+	- gridappsd-viz - https://github.com/GRIDAPPSD/gridappsd-viz/tree/releases/2019.12.0
+	- gridappsd-python - https://github.com/GRIDAPPSD/gridappsd-python/tree/releases/2019.12.0
+	- cim2glm - https://github.com/GRIDAPPSD/Powergrid-Models/tree/releases/2019.12.0
+	- proven-cluster - https://github.com/pnnl/proven-cluster/releases/tag/v1.3.5.7
+	- proven-client - https://github.com/pnnl/proven-client/releases/tag/v1.3.6
+	- proven-message - https://github.com/pnnl/proven-message/releases/tag/v1.3.5.4
+	- proven-docker - https://github.com/GRIDAPPSD/proven-docker/tree/releases/2019.12.0
+	- fncs - https://github.com/GRIDAPPSD/fncs/tree/develop
+	- gridappsd-docker-build - https://github.com/GRIDAPPSD/gridappsd-docker-build/tree/releases/2019.12.0
+	- gridlab-d - https://github.com/GRIDAPPSD/gridlab-d/tree/develop
+	- sample-app - https://github.com/GRIDAPPSD/gridappsd-sample-app/tree/releases/2019.12.0
+
+
