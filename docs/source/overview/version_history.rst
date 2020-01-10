@@ -539,6 +539,7 @@ Version 2019.12.0
 	- Added light/dark toggle themeon UI 
 	- Wrote a SWING_PQ node for each potential island in power grid model.
 	- Fixed issues for app eveluations as reported by app developers or evluation team
+	- Updated ci/cd scripts for repositories to support travis.ci updates
 	
 2. Source Code
 
