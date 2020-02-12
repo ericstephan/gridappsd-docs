@@ -137,7 +137,7 @@ Example Message:
 		"source": "",
 		"processId": "",
 		"timestamp": "",
-		"processStatus": "[STARTED|STOPPED|RUNNING|ERROR|PASSED|FAILED]",
+		"processStatus": "[STARTING|STARTED|STOPPED|RUNNING|ERROR|CLOSED|COMPLETE]",
 		"logMessage": "",
 		"logLevel": "[INFO|DEBUG|ERROR]",
 		"storeToDb": [true|false]
