@@ -20,12 +20,6 @@ Execution Workflow
 ------------------
 .. include:: Execution_Workflow.rst
 
-
-Messaging 
----------
-
-.. include:: messaging/FNCSBridge_Input.rst
-
 CIM Documentation
 -----------------
 .. include:: CDPSM.rst
@@ -34,6 +28,10 @@ Platform UML Diagrams
 ---------------------
 .. include:: UML_Diagrams.rst
 .. include:: RC1_Tasks.rst
+
+CIM Validation
+--------------
+.. include:: CIM_Validation.rst
 
 
 
